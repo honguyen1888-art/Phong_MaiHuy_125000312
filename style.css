@@ -428,7 +428,7 @@ html[data-theme="dark"] .nav-item-link.current,
 }
 
 /* --------------------------------------------------------------------------
-   5. HERO BANNER (TĂNG KÍCH THƯỚC, RÕ RÀNG TRỰC QUAN)
+   5. HERO BANNER (TĂNG KÍCH THƯỚC CÂN BẰNG VỚI CỘT BÊN TRÁI)
    -------------------------------------------------------------------------- */
 .hero-exclusive-section {
   padding-block: var(--space-xl) var(--space-lg);
@@ -438,9 +438,15 @@ html[data-theme="dark"] .nav-item-link.current,
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr 1fr; /* Chia đều 50-50 để cột phải to ngang bằng cột trái */
   align-items: center;
   gap: var(--space-xl);
+}
+
+.hero-text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Pill độc quyền: mở rộng kích thước để chữ hoàn toàn nằm bên trong */
@@ -511,12 +517,30 @@ html[data-theme="dark"] .nav-item-link.current,
   font-weight: 700;
 }
 
+/* CỘT PHẢI: MỞ RỘNG KÍCH THƯỚC TO BẰNG VỚI CỘT BÊN TRÁI */
 .hero-figure-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  width: 100%;
   animation: floatArt 5.5s ease-in-out infinite alternate;
+}
+
+.hero-figure-wrap figure {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-figure-wrap img {
+  width: 100%;
+  max-width: 680px; /* Tăng tối đa chiều ngang để to cân xứng với cột trái */
+  height: auto;
+  min-height: 480px; /* Đảm bảo chiều cao bao phủ trọn vẹn từ trên xuống dưới */
+  object-fit: contain;
+  filter: drop-shadow(0 20px 45px rgba(229, 169, 60, 0.3));
 }
 
 @keyframes floatArt {
