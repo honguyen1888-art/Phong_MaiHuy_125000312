@@ -79,7 +79,34 @@
   - Cột bên trái có khối lượng nội dung lớn (Pill độc quyền + Tiêu đề H1 3 dòng lớn + Đoạn văn mô tả + 2 nút CTA + Thanh thống kê 3 chỉ số), trong khi cột bên phải chỉ chứa ảnh minh họa ở tỉ lệ cột hẹp `0.85fr` khiến khung hình bị nhỏ và để lại nhiều khoảng trống màu đen phía trên và phía dưới.
 - **Cách sửa prompt (Debug prompt):**
   - Điều chỉnh tỉ lệ CSS Grid `.hero-grid` thành `1fr 1fr` (chia đều 50-50 hoàn hảo), mở rộng kích thước ảnh `.hero-figure-wrap img` lên `max-width: 680px` và chiều cao tối thiểu `min-height: 480px`.
-  - Nâng cấp file `assets/hero-banner.svg` sang kích thước `viewBox="0 0 620 540"`, mở rộng bục trưng bày hoàng gia, phóng lớn mô hình Scale Figure trung tâm, hộp thẻ bài Pokémon TCG và boxset Light Novel Obi, tạo nên sự cân xứng thị giác hoàn hảo giữa 2 cột.*
+  - Nâng cấp file `assets/hero-banner.svg` sang kích thước `viewBox="0 0 620 540"`, mở rộng bục trưng bày hoàng gia, phóng lớn mô hình Scale Figure trung tâm, hộp thẻ bài Pokémon TCG và boxset Light Novel Obi, tạo nên sự cân xứng thị giác hoàn hảo giữa 2 cột.
+
+---
+
+### Lần 7: Chuẩn hóa kích thước web thông thường, chính tả & tính năng lấy ảnh / xem thông số
+- **Prompt đã dùng:**
+  > *"Chỉnh lại kích thước website về với cơ bản của các trang web thông thường. Kiểm tra lại chính tả của toàn bộ web, và các thuật ngữ đúng chuyên ngành. Cho phép truy cập vào các trang để lấy ảnh và thông tin của các sản phẩm hiện có."*
+- **Thách thức gặp phải:**
+  - Container 1360px và H1 3.1rem quá to so với màn hình máy tính thông dụng 1080p, làm giao diện bị phóng đại quá mức.
+  - Một số chữ trong SVG bị đứt đuôi (như 'BẢN ĐẶC BIỆT KÈM OB' thiếu chữ I).
+  - Chưa có cơ chế cho người dùng xem ảnh phóng to, tải ảnh gốc sản phẩm về máy và tra cứu bảng thông số kỹ thuật chi tiết của từng vật phẩm.
+- **Cách sửa prompt (Debug prompt):**
+  - Đưa `.container` về chuẩn `max-width: 1200px`, hạ H1 xuống `2.35rem`, H2 xuống `2.0rem`, ảnh hero về `max-width: 480px` hài hòa.
+  - Sửa triệt để lỗi chính tả trong `hero-banner.svg` thành `BẢN ĐẶC BIỆT KÈM OBI` với đủ chữ `I` và căn giữa chuẩn mực.
+  - Xây dựng hệ thống Popup Modal thuần CSS `:target` (`.product-modal-backdrop:target`) trên cả 4 trang HTML, trang bị nút `📥 Tải Ảnh Gốc (SVG)` (`<a href="..." download>`) và `🔍 Mở Ảnh Tab Mới`, kèm bảng thông số kỹ thuật nội địa Nhật chuẩn xác từng chi tiết (Mã SKU, Hãng chế tác, Tình trạng seal, Kích thước, Tem kiểm định 7 màu, v.v.).
+
+---
+
+### Lần 8: Bỏ nút 'Săn đồ độc quyền' chống tràn mép & Cân bằng bố cục toàn website
+- **Prompt đã dùng:**
+  > *"Bỏ cái săn đồ độc quyền đi, sửa lại web sao cho cân bằng website."*
+- **Thách thức gặp phải:**
+  - Nút 'Săn Đồ Độc Quyền' trên Header chiếm khoảng 180px bề ngang, khi kết hợp với Logo thương hiệu (340px) và 4 mục menu (520px) khiến tổng chiều rộng Header vượt quá không gian hiển thị trên màn hình laptop thông thường, làm nút bị tràn mép phải màn hình và bị cắt cụt chữ.
+  - Trên các trang sản phẩm con, 6 sản phẩm hiển thị trên lưới 4 cột dẫn đến hàng 1 có 4 sản phẩm còn hàng 2 chỉ có 2 sản phẩm, tạo ra khoảng trống hụt hẫng (bất đối xứng thị giác).
+- **Cách sửa prompt (Debug prompt):**
+  - Xóa bỏ nút 'Săn Đồ Độc Quyền' (và các nút CTA thừa trên Header ở cả 4 file HTML), chỉ giữ lại nút đổi giao diện Sáng / Tối.
+  - Tái cấu trúc Flexbox Header với tỷ lệ 3 phần hoàn mỹ: `.brand-box` (`flex: 1` căn trái), `nav.main-nav` (`flex: 0 0 auto` đặt ngay chính giữa trọng tâm website), `.header-right-tools` (`flex: 1` căn phải). Header thông thoáng 100%, không bao giờ bị tràn mép.
+  - Xây dựng lưới `.products-grid-3` với 3 cột đều đặn cho các trang sản phẩm con: 6 sản phẩm chia đều thành 2 hàng &times; 3 cột, tạo nên bố cục cân bằng, đối xứng và chuyên nghiệp chuẩn mực.
 
 ---
 

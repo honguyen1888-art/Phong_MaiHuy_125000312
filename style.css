@@ -40,13 +40,13 @@
   /* Phông chữ */
   --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
-  /* Spacing rộng rãi chống tràn */
-  --space-xs: 0.4rem;
-  --space-sm: 0.85rem;
-  --space-md: 1.35rem;
-  --space-lg: 2.2rem;
-  --space-xl: 3.8rem;
-  --space-xxl: 5.5rem;
+  /* Spacing chuẩn web thông thường */
+  --space-xs: 0.35rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.2rem;
+  --space-lg: 1.8rem;
+  --space-xl: 2.8rem;
+  --space-xxl: 4rem;
 
   /* Bo góc & Chuyển động */
   --radius-sm: 8px;
@@ -192,9 +192,9 @@ button, input, select {
 
 .container {
   width: 100%;
-  max-width: 1360px;
+  max-width: 1200px;
   margin-inline: auto;
-  padding-inline: 1.5rem;
+  padding-inline: 1.25rem;
 }
 
 .sr-only {
@@ -234,7 +234,7 @@ header.site-header {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  flex-shrink: 0;
+  flex: 1;
 }
 
 .brand-logo-svg {
@@ -266,12 +266,12 @@ header.site-header {
   white-space: nowrap;
 }
 
-/* Thanh điều hướng Menu: văn bản luôn cùng 1 hàng không xuống dòng */
+/* Thanh điều hướng Menu: Đặt chính giữa trọng tâm website, cân bằng tuyệt đối */
 nav.main-nav {
   display: flex;
   align-items: center;
-  flex: 1;
   justify-content: center;
+  flex: 0 0 auto;
 }
 
 .nav-links {
@@ -286,8 +286,8 @@ nav.main-nav {
 
 .nav-item-link {
   font-weight: 800;
-  font-size: 0.98rem; /* Tăng kích thước chữ menu cho rõ ràng */
-  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  padding: 0.55rem 0.95rem;
   border-radius: var(--radius-sm);
   color: var(--theme-text);
   transition: var(--trans-fast);
@@ -324,8 +324,9 @@ html[data-theme="dark"] .nav-item-link.current,
 .header-right-tools {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 0.75rem;
-  flex-shrink: 0;
+  flex: 1;
 }
 
 /* Theme Switcher Button */
@@ -428,7 +429,7 @@ html[data-theme="dark"] .nav-item-link.current,
 }
 
 /* --------------------------------------------------------------------------
-   5. HERO BANNER (TĂNG KÍCH THƯỚC CÂN BẰNG VỚI CỘT BÊN TRÁI)
+   5. HERO BANNER (TỶ LỆ CHUẨN THÔNG THƯỜNG, HÀI HÒA & ĐẸP MẮT)
    -------------------------------------------------------------------------- */
 .hero-exclusive-section {
   padding-block: var(--space-xl) var(--space-lg);
@@ -438,7 +439,7 @@ html[data-theme="dark"] .nav-item-link.current,
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Chia đều 50-50 để cột phải to ngang bằng cột trái */
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
   gap: var(--space-xl);
 }
@@ -449,29 +450,30 @@ html[data-theme="dark"] .nav-item-link.current,
   justify-content: center;
 }
 
-/* Pill độc quyền: mở rộng kích thước để chữ hoàn toàn nằm bên trong */
+/* Pill độc quyền: kích thước chuẩn mực */
 .pill-exclusive {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   background-color: var(--color-honey-light);
   color: var(--color-black);
-  padding: 0.6rem 1.45rem;
+  padding: 0.45rem 1.15rem;
   border-radius: var(--radius-full);
   font-weight: 800;
-  font-size: 0.92rem;
-  border: 1.8px solid var(--color-honey);
-  margin-bottom: var(--space-md);
+  font-size: 0.86rem;
+  border: 1.6px solid var(--color-honey);
+  margin-bottom: var(--space-sm);
   white-space: nowrap;
+  width: fit-content;
 }
 
 .hero-headline {
-  font-size: 3.1rem;
+  font-size: 2.35rem;
   font-weight: 900;
-  line-height: 1.2;
-  letter-spacing: -0.5px;
+  line-height: 1.25;
+  letter-spacing: -0.4px;
   color: var(--theme-text);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .honey-gradient-text {
@@ -481,43 +483,43 @@ html[data-theme="dark"] .nav-item-link.current,
 }
 
 .hero-subtext {
-  font-size: 1.18rem;
+  font-size: 1.05rem;
   color: var(--theme-text-muted);
   margin-bottom: var(--space-lg);
-  max-width: 620px;
-  line-height: 1.7;
+  max-width: 580px;
+  line-height: 1.65;
 }
 
 .hero-cta-group {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-md);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
 }
 
 .hero-highlights-bar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-md);
-  padding-top: var(--space-lg);
-  border-top: 2px solid var(--theme-border);
+  padding-top: var(--space-md);
+  border-top: 1.8px solid var(--theme-border);
 }
 
 .highlight-stat-box h4 {
-  font-size: 2.1rem;
+  font-size: 1.85rem;
   font-weight: 900;
   color: var(--color-honey);
   line-height: 1;
 }
 
 .highlight-stat-box p {
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   color: var(--theme-text-muted);
-  margin-top: 0.4rem;
+  margin-top: 0.35rem;
   font-weight: 700;
 }
 
-/* CỘT PHẢI: MỞ RỘNG KÍCH THƯỚC TO BẰNG VỚI CỘT BÊN TRÁI */
+/* CỘT PHẢI: KÍCH THƯỚC CHUẨN MỰC, CÂN ĐỐI VỚI CỘT TRÁI */
 .hero-figure-wrap {
   display: flex;
   justify-content: center;
@@ -536,16 +538,15 @@ html[data-theme="dark"] .nav-item-link.current,
 
 .hero-figure-wrap img {
   width: 100%;
-  max-width: 680px; /* Tăng tối đa chiều ngang để to cân xứng với cột trái */
+  max-width: 490px; /* Tỷ lệ chuẩn web thông thường, không bị quá khổ */
   height: auto;
-  min-height: 480px; /* Đảm bảo chiều cao bao phủ trọn vẹn từ trên xuống dưới */
   object-fit: contain;
-  filter: drop-shadow(0 20px 45px rgba(229, 169, 60, 0.3));
+  filter: drop-shadow(0 15px 35px rgba(229, 169, 60, 0.28));
 }
 
 @keyframes floatArt {
   0% { transform: translateY(0px); }
-  100% { transform: translateY(-16px); }
+  100% { transform: translateY(-12px); }
 }
 
 /* --------------------------------------------------------------------------
@@ -559,44 +560,45 @@ html[data-theme="dark"] .nav-item-link.current,
 
 .section-title-wrap {
   text-align: center;
-  max-width: 800px;
+  max-width: 760px;
   margin-inline: auto;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
 }
 
 .tag-label {
   color: var(--color-honey);
   text-transform: uppercase;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 900;
-  letter-spacing: 2px;
+  letter-spacing: 1.8px;
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
 }
 
 .main-heading {
-  font-size: 2.45rem;
+  font-size: 2.0rem;
   font-weight: 900;
-  line-height: 1.25;
+  line-height: 1.3;
   color: var(--theme-text);
-  margin-bottom: var(--space-sm);
-  letter-spacing: -0.4px;
+  margin-bottom: var(--space-xs);
+  letter-spacing: -0.3px;
 }
 
 .sub-heading {
   color: var(--theme-text-muted);
-  font-size: 1.1rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
 }
 
 .categories-grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
 .category-pillar-card {
   background-color: var(--theme-card-bg);
-  border: 2px solid var(--theme-border);
+  border: 1.8px solid var(--theme-border);
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--theme-shadow-sm);
@@ -607,14 +609,14 @@ html[data-theme="dark"] .nav-item-link.current,
 }
 
 .category-pillar-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   border-color: var(--color-honey);
   box-shadow: var(--theme-shadow-lg);
 }
 
 .pillar-img-box {
   width: 100%;
-  height: 235px;
+  height: 200px;
   overflow: hidden;
   background-color: #000000;
   display: flex;
@@ -626,15 +628,15 @@ html[data-theme="dark"] .nav-item-link.current,
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform 0.5s ease;
 }
 
 .category-pillar-card:hover .pillar-img-box img {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
 .pillar-content-box {
-  padding: var(--space-lg);
+  padding: var(--space-md);
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -644,49 +646,49 @@ html[data-theme="dark"] .nav-item-link.current,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.65rem;
 }
 
 .pillar-category-name {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 900;
   color: var(--color-honey);
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .pillar-item-count {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   background-color: var(--color-honey-light);
   color: var(--color-black);
-  padding: 5px 12px;
+  padding: 4px 10px;
   border-radius: var(--radius-full);
   font-weight: 800;
   white-space: nowrap;
 }
 
 .pillar-title {
-  font-size: 1.45rem;
+  font-size: 1.25rem;
   font-weight: 800;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.55rem;
   color: var(--theme-text);
   line-height: 1.35;
 }
 
 .pillar-desc {
   color: var(--theme-text-muted);
-  font-size: 0.98rem;
+  font-size: 0.92rem;
   margin-bottom: var(--space-md);
   flex: 1;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 .pillar-footer-cta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1.8px solid var(--theme-border);
-  padding-top: var(--space-md);
+  border-top: 1.5px solid var(--theme-border);
+  padding-top: var(--space-sm);
 }
 
 .link-explore {
@@ -752,8 +754,15 @@ html[data-theme="dark"] .nav-item-link.current,
 
 .products-grid-4 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-md);
+}
+
+/* Lưới 3 cột chuẩn mực, cân bằng tuyệt đối cho các trang 6 sản phẩm (2 hàng x 3) */
+.products-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
 }
 
 .product-item-card {
@@ -776,7 +785,7 @@ html[data-theme="dark"] .nav-item-link.current,
 
 .product-thumb-holder {
   width: 100%;
-  height: 240px;
+  height: 215px;
   background: radial-gradient(circle, #FFF8EC 0%, #F5E8D2 100%);
   display: flex;
   align-items: center;
@@ -789,7 +798,7 @@ html[data-theme="dark"] .nav-item-link.current,
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 1.2rem;
+  padding: 1rem;
   transition: transform 0.4s ease;
 }
 
@@ -797,33 +806,33 @@ html[data-theme="dark"] .nav-item-link.current,
   transform: scale(1.08);
 }
 
-/* Badge trên hình ảnh: mở rộng padding và kích thước */
+/* Badge trên hình ảnh */
 .exclusive-ribbon-badge {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 10px;
+  left: 10px;
   background-color: var(--color-black);
   color: var(--color-honey);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 900;
-  padding: 5px 12px;
+  padding: 4px 10px;
   border-radius: var(--radius-sm);
-  border: 1.5px solid var(--color-honey);
-  letter-spacing: 0.8px;
+  border: 1.4px solid var(--color-honey);
+  letter-spacing: 0.6px;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
 .stock-tag-limited {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
+  bottom: 10px;
+  right: 10px;
   background: rgba(20, 20, 20, 0.9);
   backdrop-filter: blur(4px);
   color: #FFFFFF;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 800;
-  padding: 4px 12px;
+  padding: 3px 10px;
   border-radius: var(--radius-full);
   white-space: nowrap;
 }
@@ -838,27 +847,27 @@ html[data-theme="dark"] .nav-item-link.current,
 .product-meta-sub {
   display: flex;
   justify-content: space-between;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--color-honey);
   font-weight: 800;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.4rem;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
 .product-name {
-  font-size: 1.18rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: var(--theme-text);
-  line-height: 1.4;
-  margin-bottom: 0.5rem;
-  min-height: 3.3rem;
+  line-height: 1.35;
+  margin-bottom: 0.45rem;
+  min-height: 2.85rem;
 }
 
 .product-summary-snippet {
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   color: var(--theme-text-muted);
-  line-height: 1.6;
+  line-height: 1.55;
   margin-bottom: var(--space-md);
   flex: 1;
 }
@@ -866,30 +875,240 @@ html[data-theme="dark"] .nav-item-link.current,
 .product-price-bar {
   display: flex;
   align-items: baseline;
-  gap: 0.75rem;
-  margin-bottom: var(--space-md);
+  gap: 0.65rem;
+  margin-bottom: var(--space-sm);
 }
 
 .current-price {
-  font-size: 1.55rem;
+  font-size: 1.35rem;
   font-weight: 900;
   color: var(--color-honey);
 }
 
 .original-price {
-  font-size: 0.96rem;
+  font-size: 0.9rem;
   color: var(--theme-text-muted);
   text-decoration: line-through;
 }
 
 .product-actions-group {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 /* --------------------------------------------------------------------------
-   8. PURE CSS MODAL & CART TOAST NOTIFICATION
+   8. PURE CSS MODAL XEM CHI TIẾT & TẢI ẢNH GỐC SẢN PHẨM (:TARGET)
    -------------------------------------------------------------------------- */
+.product-modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background-color: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+  overflow-y: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-modal-backdrop:target {
+  display: flex;
+  animation: fadeInModal 0.25s ease forwards;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.product-modal-card {
+  background-color: var(--theme-card-bg);
+  color: var(--theme-text);
+  border: 2px solid var(--color-honey);
+  border-radius: var(--radius-md);
+  max-width: 860px;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
+  position: relative;
+  padding: 2rem;
+  animation: scaleModal 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleModal {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(229, 169, 60, 0.15);
+  border: 1.5px solid var(--color-honey);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-honey);
+  font-weight: 900;
+  cursor: pointer;
+  transition: var(--trans-fast);
+  z-index: 2;
+}
+
+.modal-close-btn:hover {
+  background-color: var(--color-honey);
+  color: var(--color-black);
+  transform: rotate(90deg);
+}
+
+.modal-content-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1.8rem;
+  align-items: start;
+}
+
+.modal-gallery-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.modal-image-showcase {
+  width: 100%;
+  height: 270px;
+  background: radial-gradient(circle, #FFF8EC 0%, #F5E8D2 100%);
+  border-radius: var(--radius-sm);
+  border: 1.8px solid var(--theme-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+html[data-theme="dark"] .modal-image-showcase {
+  background: radial-gradient(circle, #2A2419 0%, #15130E 100%);
+}
+
+.modal-image-showcase img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+}
+
+.modal-img-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.modal-details-pane {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-badge-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.modal-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--theme-text);
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
+}
+
+.modal-price-box {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  padding: 0.65rem 0.95rem;
+  background-color: var(--color-honey-light);
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--color-honey);
+  margin-bottom: 1.1rem;
+}
+
+html[data-theme="dark"] .modal-price-box {
+  background-color: rgba(229, 169, 60, 0.12);
+}
+
+.modal-price-current {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: var(--color-honey);
+}
+
+.modal-price-original {
+  font-size: 0.95rem;
+  color: var(--theme-text-muted);
+  text-decoration: line-through;
+}
+
+.modal-spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.1rem;
+  font-size: 0.88rem;
+}
+
+.modal-spec-table th,
+.modal-spec-table td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--theme-border);
+  text-align: left;
+}
+
+.modal-spec-table th {
+  width: 38%;
+  color: var(--theme-text-muted);
+  font-weight: 700;
+  background-color: rgba(229, 169, 60, 0.06);
+}
+
+.modal-spec-table td {
+  color: var(--theme-text);
+  font-weight: 800;
+}
+
+.modal-guarantee-note {
+  font-size: 0.84rem;
+  color: var(--theme-text-muted);
+  line-height: 1.5;
+  padding: 0.65rem 0.85rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--color-honey);
+  margin-bottom: 1.1rem;
+}
+
+html[data-theme="dark"] .modal-guarantee-note {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.modal-bottom-actions {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+/* Toast Cart */
 .cart-toast-notify {
   display: none;
   position: fixed;
@@ -960,28 +1179,28 @@ html[data-theme="dark"] .nav-item-link.current,
 }
 
 .guarantee-icon {
-  width: 66px;
-  height: 66px;
+  width: 56px;
+  height: 56px;
   border-radius: var(--radius-full);
   background-color: rgba(229, 169, 60, 0.15);
-  border: 1.8px solid var(--color-honey);
+  border: 1.6px solid var(--color-honey);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: var(--color-honey);
   margin-bottom: var(--space-sm);
 }
 
 .guarantee-item h4 {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--color-honey);
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.35rem;
 }
 
 .guarantee-item p {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   color: #D6D6D6;
   line-height: 1.55;
 }
@@ -1142,6 +1361,10 @@ footer.site-footer {
     grid-template-columns: 1fr;
   }
 
+  .products-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .guarantee-grid-4 {
     grid-template-columns: 1fr 1fr;
   }
@@ -1151,11 +1374,24 @@ footer.site-footer {
   }
 
   .hero-headline {
-    font-size: 2.45rem;
+    font-size: 1.95rem;
+  }
+
+  .modal-content-grid {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .modal-image-showcase {
+    height: 230px;
   }
 }
 
 @media (max-width: 768px) {
+  .products-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
   .nav-links {
     gap: 0.35rem;
   }
