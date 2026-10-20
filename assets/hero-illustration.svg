@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#EEEEEE"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#393E46" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background decorative elements -->
+  <circle cx="250" cy="200" r="160" fill="#AAD8D3" opacity="0.25"/>
+  <circle cx="420" cy="90" r="40" fill="#00ADB5" opacity="0.15"/>
+  <circle cx="80" cy="320" r="50" fill="#393E46" opacity="0.08"/>
+
+  <!-- Main CV Document Mockup -->
+  <g filter="url(#shadow)">
+    <rect x="130" y="40" width="240" height="320" rx="16" fill="url(#cardGrad)" stroke="#AAD8D3" stroke-width="2"/>
+    <!-- CV Header -->
+    <rect x="155" y="65" width="45" height="45" rx="22.5" fill="#00ADB5"/>
+    <text x="177" y="93" font-family="sans-serif" font-size="18" font-weight="bold" fill="#EEEEEE" text-anchor="middle">CV</text>
+    <rect x="215" y="70" width="120" height="12" rx="6" fill="#393E46"/>
+    <rect x="215" y="90" width="85" height="8" rx="4" fill="#00ADB5"/>
+    
+    <line x1="155" y1="125" x2="345" y2="125" stroke="#AAD8D3" stroke-width="1.5"/>
+
+    <!-- CV Section 1: Experience -->
+    <rect x="155" y="140" width="70" height="10" rx="5" fill="#393E46"/>
+    <rect x="155" y="160" width="180" height="6" rx="3" fill="#AAD8D3"/>
+    <rect x="155" y="174" width="160" height="6" rx="3" fill="#AAD8D3"/>
+    <rect x="155" y="188" width="130" height="6" rx="3" fill="#AAD8D3"/>
+
+    <!-- CV Section 2: Skills -->
+    <rect x="155" y="212" width="60" height="10" rx="5" fill="#393E46"/>
+    <rect x="155" y="232" width="50" height="14" rx="7" fill="#00ADB5" opacity="0.3"/>
+    <rect x="215" y="232" width="60" height="14" rx="7" fill="#00ADB5" opacity="0.3"/>
+    <rect x="285" y="232" width="45" height="14" rx="7" fill="#00ADB5" opacity="0.3"/>
+
+    <!-- CV Section 3: Education -->
+    <rect x="155" y="265" width="80" height="10" rx="5" fill="#393E46"/>
+    <rect x="155" y="285" width="170" height="6" rx="3" fill="#AAD8D3"/>
+    <rect x="155" y="299" width="140" height="6" rx="3" fill="#AAD8D3"/>
+
+    <!-- Floating Badge: ATS Score 95/100 -->
+    <g transform="translate(60, 160)">
+      <rect x="0" y="0" width="130" height="55" rx="12" fill="#393E46"/>
+      <circle cx="28" cy="27" r="16" fill="#00ADB5"/>
+      <path d="M22 27 L26 31 L34 22" stroke="#EEEEEE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <text x="52" y="23" font-family="sans-serif" font-size="10" fill="#AAD8D3" font-weight="bold">ATS SCORE</text>
+      <text x="52" y="42" font-family="sans-serif" font-size="16" fill="#EEEEEE" font-weight="900">95/100</text>
+    </g>
+
+    <!-- Floating Badge: AI Suggestion -->
+    <g transform="translate(300, 240)">
+      <rect x="0" y="0" width="160" height="65" rx="12" fill="#ffffff" stroke="#00ADB5" stroke-width="2"/>
+      <circle cx="25" cy="32" r="12" fill="#AAD8D3"/>
+      <text x="25" y="37" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#393E46">💡</text>
+      <text x="46" y="25" font-family="sans-serif" font-size="11" fill="#393E46" font-weight="bold">AI Gợi Ý Sửa</text>
+      <text x="46" y="42" font-family="sans-serif" font-size="9" fill="#00ADB5">Thêm chỉ số định lượng %</text>
+      <text x="46" y="54" font-family="sans-serif" font-size="8" fill="#393E46" opacity="0.7">Tăng 40% tỉ lệ gọi phỏng vấn</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Giúp Luyện Tập Và Dò CV - CVCheckAI</title>
+  <meta name="description" content="Nền tảng trực tuyến giúp luyện tập, dò quét lỗi CV và tối ưu chuẩn ATS tự động bằng trí tuệ nhân tạo. Thiết kế thuần chuẩn W3C Semantic HTML5 và CSS Variables.">
+  <meta name="author" content="Mai Huy Phong - MSSV: 125000312">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+
+  <!-- 1. Thư viện Animate.css theo yêu cầu đề thi -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- 2. Thư viện AOS (Animate On Scroll) theo yêu cầu đề thi -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- Phông chữ hiện đại chuẩn quốc tế -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- File CSS định kiểu chính -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Input checkbox ẩn để kích hoạt chế độ Sáng / Tối (Dark / Light Mode) bằng thuần CSS -->
+  <input type="checkbox" id="theme-toggle" aria-label="Chuyển đổi giao diện sáng tối">
+
+  <!-- Toàn bộ nội dung trang web gói trong lớp .site-wrapper -->
+  <div class="site-wrapper">
+
+    <!-- ====================================================================
+         1. SEMANTIC HEADER & NAVIGATION
+         ==================================================================== -->
+    <header class="site-header animate__animated animate__fadeInDown">
+      <div class="container header-container">
+        
+        <!-- Logo & Thương hiệu -->
+        <a href="#home" class="logo-group" aria-label="Trang chủ CVCheckAI">
+          <img src="assets/logo.svg" alt="CVCheckAI Logo" class="logo-svg" width="180" height="45">
+          <span class="brand-badge">BETA v2.4</span>
+        </a>
+
+        <!-- Thanh điều hướng chính (Semantic <nav>) -->
+        <nav class="main-nav" aria-label="Điều hướng chính website">
+          <ul class="nav-list">
+            <li><a href="#home" class="nav-link active-link">Trang chủ</a></li>
+            <li><a href="#about" class="nav-link">Giới thiệu</a></li>
+            <li><a href="#community" class="nav-link">Cộng đồng</a></li>
+            <li><a href="#cv-editor" class="nav-link">Sửa &amp; Dò CV</a></li>
+            <li><a href="#faq" class="nav-link">Hỏi - Đáp</a></li>
+          </ul>
+        </nav>
+
+        <!-- Tiện ích bên phải: Nút chuyển chế độ Sáng/Tối & CTA -->
+        <div class="header-actions">
+          <label for="theme-toggle" class="toggle-label" title="Chuyển đổi Sáng / Tối (Thuần CSS)">
+            <span class="icon-moon" aria-hidden="true">🌙</span>
+            <span class="icon-sun" aria-hidden="true">☀️</span>
+          </label>
+          <a href="#cv-editor" class="btn btn-primary animate__animated animate__pulse animate__infinite">
+            <span>Dò CV Ngay</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- ====================================================================
+         2. MAIN CONTENT AREA (SEMANTIC <main>)
+         ==================================================================== -->
+    <main>
+
+      <!-- ------------------------------------------------------------------
+           MỤC 1: TRANG CHỦ (HERO SECTION & TỔNG QUAN WEBSITE)
+           ------------------------------------------------------------------ -->
+      <section id="home" class="hero-section">
+        <div class="container hero-grid">
+          
+          <!-- Cột nội dung giới thiệu chính -->
+          <div class="hero-content" data-aos="fade-right">
+            <div class="hero-badge-pill">
+              <span>⚡</span> Trợ lý AI Dò Lỗi &amp; Luyện Viết CV Chuẩn ATS
+            </div>
+            <h1 class="hero-title">
+              Nâng Tầm Hồ Sơ, <br>
+              <span class="text-gradient">Chinh Phục Mọi Vòng Tuyển Dụng</span>
+            </h1>
+            <p class="hero-description">
+              Nền tảng trực tuyến giúp bạn <strong>luyện tập viết CV</strong>, tự động <strong>dò quét lỗi định dạng</strong>, phát hiện từ khóa còn thiếu và gợi ý tối ưu hóa hồ sơ theo chuẩn các hệ thống Applicant Tracking System (ATS) hàng đầu thế giới.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#cv-editor" class="btn btn-primary">
+                <span>Trải Nghiệm Sửa CV</span>
+                <span aria-hidden="true">✍️</span>
+              </a>
+              <a href="#community" class="btn btn-secondary">
+                <span>Xem Đánh Giá Quốc Tế</span>
+                <span aria-hidden="true">🌍</span>
+              </a>
+            </div>
+
+            <!-- Các chỉ số thống kê uy tín -->
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-number">98.5%</span>
+                <span class="stat-label">Tỉ lệ vượt qua hệ thống quét ATS</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">25,000+</span>
+                <span class="stat-label">CV sinh viên &amp; Dev đã được sửa</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">3.2x</span>
+                <span class="stat-label">Tăng tỉ lệ nhận cuộc gọi phỏng vấn</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cột hình minh họa vector -->
+          <div class="hero-visual" data-aos="fade-left">
+            <figure class="hero-img-box">
+              <img src="assets/hero-illustration.svg" alt="Hệ thống AI dò quét và gợi ý sửa lỗi CV tự động" width="480" height="384">
+              <figcaption class="sr-only">Hệ sinh thái luyện tập và kiểm tra CV tự động</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           CÁC TÍNH NĂNG & TIỆN ÍCH CỐT LÕI (CORE FEATURES)
+           ------------------------------------------------------------------ -->
+      <section class="features-section">
+        <div class="container">
+          <header class="section-heading-center" data-aos="fade-up">
+            <span class="sub-title">Hệ Sinh Thái Đột Phá</span>
+            <h2 class="section-title">Tiện Ích Toàn Diện Cho Người Viết CV</h2>
+            <p class="section-desc">Không chỉ dừng lại ở một công cụ tạo mẫu thông thường, chúng tôi đem đến giải pháp luyện tập viết mô tả công việc và rà soát lỗi chuyên sâu.</p>
+          </header>
+
+          <div class="features-grid">
+            
+            <article class="feature-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="feature-icon-wrapper">🎯</div>
+              <h3>Dò Lỗi Chuẩn ATS</h3>
+              <p>Mô phỏng thuật toán của Workday, Taleo, Greenhouse. Phát hiện định dạng bảng biểu, font lỗi khiến máy quét từ chối hồ sơ của bạn.</p>
+              <span class="feature-badge">Khả năng tương thích 99.8%</span>
+            </article>
+
+            <article class="feature-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="feature-icon-wrapper">🤖</div>
+              <h3>Chatbot AI Trực Tiếp</h3>
+              <p>Trợ lý trò chuyện thông minh nhắm trực diện vào các mục CV bạn vừa điền. Phản biện và đề xuất viết lại câu văn ấn tượng.</p>
+              <span class="feature-badge">Tương tác thời gian thực</span>
+            </article>
+
+            <article class="feature-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="feature-icon-wrapper">💡</div>
+              <h3>Gợi Ý Động Từ Hành Động</h3>
+              <p>Loại bỏ các cụm từ sáo rỗng "Làm việc chăm chỉ", "Nhiệt tình", thay thế bằng các Power Verbs và công thức đo lường thành tích X-Y-Z.</p>
+              <span class="feature-badge">+40% độ tin cậy</span>
+            </article>
+
+            <article class="feature-card" data-aos="fade-up" data-aos-delay="400">
+              <div class="feature-icon-wrapper">🌓</div>
+              <h3>Chế Độ Sáng / Tối Dịu Mắt</h3>
+              <p>Bảng màu thiết kế chuyên nghiệp (#393E46, #00ADB5, #AAD8D3, #EEEEEE) giúp bảo vệ mắt khi bạn tập trung rà soát hồ sơ ban đêm.</p>
+              <span class="feature-badge">Thân thiện thị giác</span>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           MỤC 2: SỬA CV & CHAT BOT AI (TRANG THÔNG TIN NGƯỜI DÙNG & GỢI Ý)
+           ------------------------------------------------------------------ -->
+      <section id="cv-editor" class="cv-studio-section">
+        <div class="container">
+          
+          <header class="section-heading-center" data-aos="fade-up">
+            <span class="sub-title">Phòng Luyện Tập &amp; Dò Quét</span>
+            <h2 class="section-title">Nhập Thông Tin CV &amp; Trò Chuyện Cùng AI</h2>
+            <p class="section-desc">Điền hoặc chỉnh sửa nội dung hồ sơ của bạn. Hệ thống AI sẽ lập tức phân tích và đưa ra phản hồi chỉ dẫn trực tiếp.</p>
+          </header>
+
+          <div class="studio-grid">
+            
+            <!-- CỘT TRÁI: TRANG THÔNG TIN NGƯỜI DÙNG ĐIỀN CV -->
+            <div class="form-card" data-aos="fade-right">
+              
+              <!-- Khung thông báo phản hồi Lưu thành công thuần CSS :target -->
+              <div id="save-notification" class="save-toast-banner" role="alert">
+                <div class="toast-text">
+                  <span style="font-size: 1.2rem;">✅</span>
+                  <span><strong>Đã lưu thành công!</strong> Dữ liệu CV đã được cập nhật. Chatbot AI đã nhận diện dữ liệu mới nhất.</span>
+                </div>
+                <a href="#cv-editor" class="toast-close-btn" title="Đóng thông báo">&times;</a>
+              </div>
+
+              <div class="card-header-bar">
+                <h3><span>📋</span> Thông Tin Người Dùng &amp; Hồ Sơ CV</h3>
+                <span class="cv-status-badge">
+                  <span class="pulse-dot"></span> Sẵn sàng phân tích
+                </span>
+              </div>
+
+              <!-- Form thuần chuẩn HTML5 (Có nút Lưu, Chỉnh sửa, Xóa) -->
+              <form id="cv-user-form" action="#save-notification" method="get">
+                
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label for="fullName">Họ và tên *</label>
+                    <input type="text" id="fullName" name="fullName" class="form-control" value="Mai Huy Phong" required placeholder="Ví dụ: Mai Huy Phong">
+                  </div>
+                  <div class="form-group">
+                    <label for="jobTitle">Vị trí ứng tuyển mục tiêu *</label>
+                    <input type="text" id="jobTitle" name="jobTitle" class="form-control" value="Frontend Web Developer" required placeholder="Ví dụ: Frontend Web Developer">
+                  </div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label for="email">Email liên hệ *</label>
+                    <input type="email" id="email" name="email" class="form-control" value="phong.maihuy.it@gmail.com" required placeholder="ten@email.com">
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Số điện thoại *</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" value="0901 234 567" required placeholder="09xx xxx xxx">
+                  </div>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="summary">Tóm tắt mục tiêu nghề nghiệp (Professional Summary)</label>
+                  <textarea id="summary" name="summary" class="form-control" rows="3" placeholder="Mô tả mục tiêu nghề nghiệp và thế mạnh của bạn...">Lập trình viên Frontend đam mê công nghệ Web hiện đại, có nền tảng vững chắc về HTML5 Semantic, CSS Grid/Flexbox và tối ưu hiệu năng trang web. Định hướng phát triển thành Senior Frontend Engineer thiết kế các giải pháp thân thiện và tối ưu người dùng.</textarea>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="experience">Kinh nghiệm dự án / Việc làm (Đã được cập nhật)</label>
+                  <textarea id="experience" name="experience" class="form-control" rows="4" placeholder="Mô tả các dự án và kinh nghiệm làm việc...">- Xây dựng Website Luyện tập và Dò CV (CVCheckAI) đạt chuẩn W3C HTML5 Semantic và CSS Variables.
+- Tối ưu hóa điểm số thân thiện ATS đạt 92/100, cải thiện 35% khả năng phân tích từ khóa tuyển dụng.
+- Thiết kế giao diện hỗ trợ Dark / Light mode chuyên nghiệp với bộ màu dịu mắt #393E46, #00ADB5, #AAD8D3.</textarea>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label for="skills">Kỹ năng chuyên môn (Skills &amp; Tools)</label>
+                    <input type="text" id="skills" name="skills" class="form-control" value="HTML5 Semantic, CSS3 Variables, Responsive Design, CSS Grid, Flexbox, Git, Animate.css, AOS" placeholder="Các kỹ năng...">
+                  </div>
+                  <div class="form-group">
+                    <label for="education">Trình độ học vấn (Education)</label>
+                    <input type="text" id="education" name="education" class="form-control" value="Trường Đại học Lạc Hồng - Khoa CNTT (2022 - 2026)" placeholder="Trường học, khóa học...">
+                  </div>
+                </div>
+
+                <!-- THANH NÚT ĐIỀU KHIỂN YÊU CẦU: LƯU, CHỈNH SỬA, XÓA -->
+                <div class="form-actions-bar">
+                  <div class="action-buttons-group">
+                    <!-- 1. Nút Lưu -->
+                    <button type="submit" class="btn btn-primary" title="Lưu thông tin CV vào bộ nhớ hệ thống">
+                      <span>💾 Lưu</span>
+                    </button>
+                    <!-- 2. Nút Chỉnh sửa -->
+                    <a href="#summary" class="btn btn-secondary" title="Đến khu vực chỉnh sửa nội dung">
+                      <span>✏️ Chỉnh Sửa</span>
+                    </a>
+                    <!-- 3. Nút Xóa (type=reset) -->
+                    <button type="reset" class="btn btn-danger" title="Xóa toàn bộ nội dung trong form để nhập lại từ đầu">
+                      <span>🗑️ Xóa</span>
+                    </button>
+                  </div>
+
+                  <span class="diff-explanation">⚡ Đã tự động kích hoạt tính năng dò lỗi CV</span>
+                </div>
+
+              </form>
+            </div>
+
+            <!-- CỘT PHẢI: CHATBOT AI VÀ CHỈ SỐ ĐIỂM ATS -->
+            <div class="ai-companion-card" data-aos="fade-left">
+              
+              <!-- Thang đo điểm ATS -->
+              <div class="ats-score-meter">
+                <div class="score-top">
+                  <span>CHỈ SỐ TƯƠNG THÍCH ATS HIỆN TẠI</span>
+                  <span class="score-number">92<small style="font-size: 1rem; color: var(--color-text-muted);">/100</small></span>
+                </div>
+                <div class="score-bar-bg">
+                  <div class="score-bar-fill"></div>
+                </div>
+                <div class="score-assessment">
+                  <span>✅ Tình trạng: Xuất sắc - Đạt chuẩn phỏng vấn công ty quốc tế</span>
+                </div>
+              </div>
+
+              <!-- Hộp Chatbot AI nhắm vào CV -->
+              <div class="chatbot-box">
+                <div class="chat-header">
+                  <div class="chat-bot-info">
+                    <div class="bot-avatar">🤖</div>
+                    <div>
+                      <div class="bot-title">CV AI Assistant</div>
+                      <div class="bot-status"><span class="pulse-dot"></span> Đang trực tuyến &amp; Đã kết nối với CV cập nhật</div>
+                    </div>
+                  </div>
+                  <span class="pill-item" style="background: rgba(255,255,255,0.2); color: #fff;">AI Model v4.2</span>
+                </div>
+
+                <!-- Danh sách tin nhắn đối thoại giữa Người dùng và Trợ lý AI -->
+                <div class="chat-messages" id="chat-stream">
+                  
+                  <div class="chat-bubble bot">
+                    Xin chào <strong>Mai Huy Phong</strong>! Tôi đã quét toàn bộ CV vị trí <strong>Frontend Web Developer</strong> bạn vừa cập nhật. Cấu trúc ngữ nghĩa HTML5 và tư duy bố cục CSS của bạn rất tốt!
+                  </div>
+
+                  <div class="chat-bubble user">
+                    Chào trợ lý, CV của tôi hiện còn thiếu sót những điểm gì để đạt điểm ATS tối đa?
+                  </div>
+
+                  <div class="chat-bubble bot">
+                    Tôi nhận thấy 2 gợi ý sửa quan trọng:
+                    <br>1. Tại mục <strong>Kinh nghiệm</strong>: Hãy dùng công thức Google X-Y-Z (Đạt được X, đo lường bằng Y, bằng cách làm Z).
+                    <br>2. Cần bổ sung thêm từ khóa về <em>Web Accessibility (A11y)</em> và <em>Cross-browser compatibility</em>.
+                    <div class="chat-suggestions-pill">
+                      <span class="pill-item">💡 Tự động tối ưu mô tả dự án</span>
+                      <span class="pill-item">📊 Kiểm tra mật độ từ khóa</span>
+                    </div>
+                  </div>
+
+                  <div class="chat-bubble user">
+                    Hãy gợi ý cho tôi 1 câu mô tả dự án CVCheckAI hoàn hảo nhất!
+                  </div>
+
+                  <div class="chat-bubble bot">
+                    Dưới đây là câu gợi ý sửa:
+                    <br><em>"Thiết kế &amp; phát triển nền tảng Luyện tập &amp; Dò CV thuần HTML5/CSS, tích hợp hệ sinh thái gợi ý AI giúp người dùng tăng 35% tỉ lệ gọi phỏng vấn."</em>
+                  </div>
+
+                </div>
+
+                <!-- Khung nhập tin nhắn và nút gửi -->
+                <div class="chat-input-area">
+                  <input type="text" class="chat-input" placeholder="Hỏi AI: 'Kiểm tra lỗi chính tả', 'Thêm từ khóa'..." aria-label="Nhập câu hỏi cho Chatbot AI">
+                  <button type="button" class="btn btn-primary" style="padding: 0.5rem 1rem;" title="Gửi tin nhắn">
+                    <span>Gửi</span>
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- PHẦN GỢI Ý SỬA LỖI CV CHI TIẾT (BEFORE & AFTER / ATS TIPS) -->
+          <div class="preview-suggestions-grid" data-aos="fade-up">
+            
+            <!-- Khối 1: Lỗi thường gặp và cách sửa -->
+            <article class="diff-card">
+              <div class="diff-header">
+                <h4>⚠️ Các Lỗi Cần Khắc Phục Trong CV Cũ</h4>
+                <span class="diff-badge-wrong">Cần Sửa Ngay</span>
+              </div>
+              <div class="diff-item wrong">
+                <strong>Cách viết cũ:</strong> "Tham gia làm việc nhóm để hoàn thành website của trường."
+                <div class="diff-explanation">❌ Lỗi: Thiếu vai trò cụ thể, không có số liệu đo lường, dùng từ bị động.</div>
+              </div>
+              <div class="diff-item wrong">
+                <strong>Cách viết cũ:</strong> "Biết lập trình HTML, CSS và có tính cách chăm chỉ, nhiệt huyết."
+                <div class="diff-explanation">❌ Lỗi: Từ ngữ sáo rỗng (buzzwords), hệ thống ATS bỏ qua kỹ năng chung chung.</div>
+              </div>
+            </article>
+
+            <!-- Khối 2: Đề xuất sửa đổi chuyên nghiệp từ AI -->
+            <article class="diff-card">
+              <div class="diff-header">
+                <h4>✨ Gợi Ý Sửa Chuẩn Chuyên Nghiệp (AI Recommends)</h4>
+                <span class="diff-badge-right">Đạt Chuẩn ATS</span>
+              </div>
+              <div class="diff-item right">
+                <strong>Đề xuất mới:</strong> "Đảm nhiệm vai trò Frontend Lead nhóm 4 người, triển khai kiến trúc HTML5 Semantic và CSS Variables giúp giảm 25% thời gian render trang."
+                <div class="diff-explanation">✅ Đạt chuẩn: Có hành động (Lead), công nghệ (HTML5 Semantic) và số liệu (25%).</div>
+              </div>
+              <div class="diff-item right">
+                <strong>Đề xuất mới:</strong> "Lập trình viên thành thạo HTML5, CSS Grid/Flexbox, tối ưu responsive trên mọi kích thước màn hình và đạt chuẩn W3C."
+                <div class="diff-explanation">✅ Đạt chuẩn: Từ khóa kỹ thuật chính xác, thể hiện chuyên môn vững vàng.</div>
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           MỤC 3: GIỚI THIỆU & THẮC MẮC - GIẢI PHÁP (ABOUT & SOLUTIONS)
+           ------------------------------------------------------------------ -->
+      <section id="about" class="about-section">
+        <div class="container">
+          
+          <div class="about-intro-grid">
+            <div class="about-text-content" data-aos="fade-right">
+              <span class="sub-title">Về Chúng Tôi</span>
+              <h3>Giải Pháp Toàn Diện Cho Người Tìm Việc Trong Kỷ Nguyên AI</h3>
+              <p>
+                <strong>CVCheckAI</strong> được thành lập từ sự thấu hiểu sâu sắc nỗi trăn trở của hàng ngàn sinh viên công nghệ thông tin và ứng viên trẻ: dù sở hữu kỹ năng lập trình tốt nhưng hồ sơ ứng tuyển vẫn liên tục bị các hệ thống quét tự động loại bỏ ngay từ vòng gửi xe.
+              </p>
+              <p>
+                Chúng tôi mang đến giải pháp luyện tập viết CV và dò quét lỗi theo thời gian thực, trang bị cho người tìm việc những tiêu chuẩn khắt khe nhất của thị trường lao động toàn cầu.
+              </p>
+
+              <ul class="about-highlights-list">
+                <li><span class="check-icon">✓</span> 100% tuân thủ cấu trúc quét của hệ thống ATS hiện đại.</li>
+                <li><span class="check-icon">✓</span> Thuật toán phát hiện từ khóa chuyên ngành CNTT chuẩn xác.</li>
+                <li><span class="check-icon">✓</span> Bảo mật tuyệt đối: Mọi thông tin CV chỉ lưu tại trình duyệt của bạn.</li>
+              </ul>
+            </div>
+
+            <div class="about-visual-box" data-aos="fade-left">
+              <div class="diff-card" style="border-left: 4px solid var(--color-primary);">
+                <h4 style="font-size: 1.3rem; margin-bottom: 0.8rem; color: var(--color-primary);">🎯 Sứ Mệnh Vì Cộng Đồng</h4>
+                <p style="color: var(--color-text-muted); line-height: 1.7; margin-bottom: 1rem;">
+                  "Giúp mọi ứng viên tự tin bước vào cánh cửa phỏng vấn với một bản CV được trau chuốt tỉ mỉ, trung thực, nổi bật giá trị cốt lõi và hoàn toàn vượt qua các rào cản thuật toán."
+                </p>
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                  <img src="assets/bot.svg" alt="Biểu tượng bot hỗ trợ" width="55" height="55">
+                  <div>
+                    <h5 style="font-weight: 700; color: var(--color-text);">Đội Ngũ Phát Triển CVCheckAI</h5>
+                    <small style="color: var(--color-text-muted);">Trường Đại học Lạc Hồng - Học phần Thiết Kế Web</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BẢNG THẮC MẮC (FAQ) VÀ GIẢI PHÁP MÀ WEBSITE ĐEM LẠI -->
+          <div id="faq" class="faq-solutions-container" data-aos="fade-up">
+            <header class="section-heading-center" style="margin-bottom: var(--spacing-lg);">
+              <span class="sub-title">Thắc Mắc &amp; Lời Giải</span>
+              <h2 class="section-title">Những Câu Hỏi Thường Gặp Về Dò Quét CV</h2>
+              <p class="section-desc">Khám phá các vấn đề cốt lõi khiến CV bị từ chối và giải pháp triệt để từ CVCheckAI.</p>
+            </header>
+
+            <!-- Semantic <details> & <summary> pure HTML5 -->
+            <div class="faq-card">
+              <details class="faq-item" open>
+                <summary class="faq-question">Tại sao tôi nộp hàng chục công ty nhưng không nhận được phản hồi?</summary>
+                <div class="faq-answer">
+                  Hơn 75% CV của ứng viên bị loại tự động bởi phần mềm máy quét ATS trước khi đến tay nhà tuyển dụng. Nguyên nhân chủ yếu do định dạng file không tương thích, thiếu từ khóa mô tả công việc (Job Description) hoặc bố cục bị lỗi.
+                  <div class="solution-box">
+                    <strong>Giải pháp từ CVCheckAI:</strong> Hệ thống tự động so khớp từ khóa của bạn với tiêu chuẩn ngành và đưa ra cảnh báo các phần bị thiếu sót ngay lập tức.
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <div class="faq-card">
+              <details class="faq-item">
+                <summary class="faq-question">Sinh viên mới ra trường chưa có nhiều kinh nghiệm thì viết CV thế nào?</summary>
+                <div class="faq-answer">
+                  Nhà tuyển dụng không chỉ tìm kiếm kinh nghiệm năm làm việc, họ tìm kiếm <strong>năng lực giải quyết vấn đề</strong> thông qua đồ án môn học, dự án cá nhân (side projects) và các hoạt động học tập thực tế.
+                  <div class="solution-box">
+                    <strong>Giải pháp từ CVCheckAI:</strong> Tính năng gợi ý sửa biến các bài tập lớn/đồ án thành các dự án thực chiến chuẩn xác bằng việc định lượng kết quả và nêu rõ công nghệ sử dụng.
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <div class="faq-card">
+              <details class="faq-item">
+                <summary class="faq-question">CV thiết kế đồ họa nhiều màu sắc trên Canva có vượt qua được ATS không?</summary>
+                <div class="faq-answer">
+                  Các mẫu CV nhiều cột, dùng text box hoặc chứa nhiều icon đồ họa thường khiến parser của ATS bị lỗi trích xuất văn bản (parse error), dẫn đến việc dữ liệu bị trắng hoặc sai lệch thông tin quan trọng.
+                  <div class="solution-box">
+                    <strong>Giải pháp từ CVCheckAI:</strong> Định hướng cấu trúc phân cấp chuẩn W3C, một cột hoặc hai cột rõ ràng, đảm bảo máy đọc văn bản mượt mà và nhà tuyển dụng dễ dàng tiếp nhận.
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <div class="faq-card">
+              <details class="faq-item">
+                <summary class="faq-question">Chế độ sáng tối của website hoạt động ra sao và hỗ trợ gì cho người dùng?</summary>
+                <div class="faq-answer">
+                  Website được thiết kế chuyển đổi chế độ Sáng / Tối (Dark / Light mode) hoàn toàn bằng <strong>thuần CSS Variables</strong> với bảng màu chuyên nghiệp (#393E46, #00ADB5, #AAD8D3, #EEEEEE).
+                  <div class="solution-box">
+                    <strong>Lợi ích thực tế:</strong> Giúp người dùng tập trung cao độ, giảm thiểu căng thẳng mắt khi rà soát và chỉnh sửa hồ sơ vào ban đêm mà không làm sai lệch màu sắc bản in.
+                  </div>
+                </div>
+              </details>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           MỤC 4: CỘNG ĐỒNG (BLOG CHIA SẺ & ĐÁNH GIÁ TÍCH CỰC BẰNG TIẾNG ANH)
+           ------------------------------------------------------------------ -->
+      <section id="community" class="community-section">
+        <div class="container">
+          
+          <header class="section-heading-center" data-aos="fade-up">
+            <span class="sub-title">Góc Nhìn Chuyên Gia &amp; Chia Sẻ</span>
+            <h2 class="section-title">Cộng Đồng Luyện Viết CV &amp; Bí Quyết Tuyển Dụng</h2>
+            <p class="section-desc">Cập nhật xu hướng tuyển dụng quốc tế, các bài viết chia sẻ kinh nghiệm và đánh giá thực tế từ người dùng trên toàn cầu.</p>
+          </header>
+
+          <!-- 3 BÀI VIẾT BLOG CHIA SẺ KINH NGHIỆM -->
+          <div class="blog-articles-grid">
+            
+            <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="blog-header">
+                <span class="blog-category">Bí Quyết ATS</span>
+                <time datetime="2026-10-15" class="blog-time">15 Tháng 10, 2026</time>
+              </div>
+              <div class="blog-body">
+                <h3 class="blog-title">10 Lỗi Chí Mạng Khiến CV Bị Loại Ngay Trong 3 Giây Đầu Tiên</h3>
+                <p class="blog-excerpt">Tìm hiểu tại sao việc dùng bảng biểu phức tạp, đặt thông tin trong header/footer và dùng font chữ lạ làm tê liệt hệ thống quét tự động.</p>
+                <div class="blog-footer">
+                  <span>Tác giả: Ban Chuyên Môn</span>
+                  <span>Đọc 4 phút →</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="blog-header">
+                <span class="blog-category">Công Thức Viết</span>
+                <time datetime="2026-10-18" class="blog-time">18 Tháng 10, 2026</time>
+              </div>
+              <div class="blog-body">
+                <h3 class="blog-title">Áp Dụng Công Thức Google X-Y-Z Biến Điểm Yếu Thành Thế Mạnh</h3>
+                <p class="blog-excerpt">Hướng dẫn từng bước biến các câu mô tả công việc tẻ nhạt thành câu chuyện thành tích thuyết phục với các con số % định lượng rõ ràng.</p>
+                <div class="blog-footer">
+                  <span>Tác giả: Career Coach</span>
+                  <span>Đọc 6 phút →</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="blog-header">
+                <span class="blog-category">Frontend &amp; IT</span>
+                <time datetime="2026-10-20" class="blog-time">20 Tháng 10, 2026</time>
+              </div>
+              <div class="blog-body">
+                <h3 class="blog-title">Cách Làm Nổi Bật Dự Án HTML5 &amp; CSS Trong CV Dành Cho Dev</h3>
+                <p class="blog-excerpt">Chia sẻ cách trình bày kỹ năng Semantic HTML5, CSS Variables, Responsive Layouts để chinh phục các Technical Lead khó tính.</p>
+                <div class="blog-footer">
+                  <span>Tác giả: Mai Huy Phong</span>
+                  <span>Đọc 5 phút →</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- CÁC BÀI ĐÁNH GIÁ TÍCH CỰC BẰNG TIẾNG ANH (ENGLISH POSITIVE REVIEWS) -->
+          <div class="reviews-title-box" data-aos="fade-up">
+            <span class="sub-title">Global Voices</span>
+            <h3 class="section-title" style="font-size: 1.8rem;">Positive Reviews From Tech Recruiters &amp; Engineers</h3>
+            <p class="section-desc">Những phản hồi chân thực bằng tiếng Anh từ các chuyên gia tuyển dụng và kỹ sư phần mềm quốc tế.</p>
+          </div>
+
+          <div class="reviews-grid">
+            
+            <article class="review-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="rating-stars" aria-label="Đánh giá 5 sao">★★★★★</div>
+              <blockquote class="review-quote">
+                "CVCheckAI completely transformed the caliber of CVs we receive from junior candidates. The AI-driven feedback catches subtle keyword omissions and formatting flaws that usually trigger automatic ATS rejections. A truly remarkable platform!"
+              </blockquote>
+              <div class="reviewer-meta">
+                <div class="reviewer-avatar">SJ</div>
+                <div class="reviewer-info">
+                  <h5>Sarah Jenkins</h5>
+                  <p>Senior Talent Partner, FinTech London</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="review-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="rating-stars" aria-label="Đánh giá 5 sao">★★★★★</div>
+              <blockquote class="review-quote">
+                "I went from zero callbacks to receiving four consecutive interview invitations within two weeks. The interactive chatbot pinpointed weak action verbs in my project bullet points and replaced them with punchy metric-driven achievements!"
+              </blockquote>
+              <div class="reviewer-meta">
+                <div class="reviewer-avatar">AR</div>
+                <div class="reviewer-info">
+                  <h5>Alex Rivera</h5>
+                  <p>Frontend Engineer at NovaCloud</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="review-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="rating-stars" aria-label="Đánh giá 5 sao">★★★★★</div>
+              <blockquote class="review-quote">
+                "The cleanest and most intuitive resume reviewer I have tested this year. The aesthetic color scheme (#00ADB5 with deep slate) is easy on the eyes, and having a pure HTML5/CSS implementation makes it blazingly fast with zero lag."
+              </blockquote>
+              <div class="reviewer-meta">
+                <div class="reviewer-avatar">EW</div>
+                <div class="reviewer-info">
+                  <h5>Dr. Emily Watson</h5>
+                  <p>Director of Tech Career Pathways</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="review-card" data-aos="fade-up" data-aos-delay="400">
+              <div class="rating-stars" aria-label="Đánh giá 5 sao">★★★★★</div>
+              <blockquote class="review-quote">
+                "Scored 92/100 on the ATS tracker after refining my technical skills section. The real-time tips helped me highlight my HTML5 and CSS competencies accurately. Highly recommended for every university tech graduate!"
+              </blockquote>
+              <div class="reviewer-meta">
+                <div class="reviewer-avatar">DC</div>
+                <div class="reviewer-info">
+                  <h5>David Chen</h5>
+                  <p>Junior Web Developer</p>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           CALL TO ACTION (CTA BANNER)
+           ------------------------------------------------------------------ -->
+      <section class="cta-banner-section" data-aos="zoom-in">
+        <div class="container cta-box">
+          <h2>Sẵn Sàng Nhận Lời Mời Phỏng Vấn Đầu Tiên?</h2>
+          <p>Luyện tập và kiểm tra CV của bạn ngay bây giờ để đón đầu các cơ hội việc làm hấp dẫn nhất.</p>
+          <a href="#cv-editor" class="btn btn-primary" style="padding: 0.85rem 2rem; font-size: 1.1rem;">
+            <span>Bắt Đầu Luyện &amp; Dò CV Miễn Phí</span>
+            <span aria-hidden="true">🚀</span>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ====================================================================
+         3. SEMANTIC FOOTER
+         ==================================================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        
+        <div class="footer-grid">
+          
+          <!-- Cột thương hiệu và thông tin sinh viên -->
+          <div class="footer-brand">
+            <h4>
+              <span>⚡</span> CVCheckAI
+            </h4>
+            <p>
+              Nền tảng luyện tập và dò lỗi CV chuẩn quốc tế dành cho sinh viên và người tìm việc. Tối ưu hóa 100% bằng HTML5 Semantic &amp; CSS3 Variables.
+            </p>
+            <div style="margin-top: 1rem;">
+              <span class="footer-author-credit">
+                Sinh viên: <strong>Mai Huy Phong</strong> (MSSV: <strong>125000312</strong>)
+              </span>
+            </div>
+          </div>
+
+          <!-- Cột tính năng -->
+          <div class="footer-column">
+            <h5>Tính Năng Chính</h5>
+            <ul class="footer-links">
+              <li><a href="#cv-editor">Dò lỗi chuẩn ATS</a></li>
+              <li><a href="#cv-editor">Chatbot AI tương tác CV</a></li>
+              <li><a href="#cv-editor">Gợi ý động từ hành động</a></li>
+              <li><a href="#home">Chấm điểm tương thích</a></li>
+            </ul>
+          </div>
+
+          <!-- Cột liên kết nhanh -->
+          <div class="footer-column">
+            <h5>Điều Hướng</h5>
+            <ul class="footer-links">
+              <li><a href="#home">Trang chủ</a></li>
+              <li><a href="#about">Giới thiệu website</a></li>
+              <li><a href="#community">Cộng đồng &amp; Đánh giá</a></li>
+              <li><a href="#faq">Hỏi &amp; Đáp (FAQs)</a></li>
+            </ul>
+          </div>
+
+          <!-- Cột thông tin học phần trường ĐH Lạc Hồng -->
+          <div class="footer-column">
+            <h5>Thông Tin Đồ Án</h5>
+            <ul class="footer-links">
+              <li><a href="#">Học phần: Thiết Kế Web</a></li>
+              <li><a href="#">Trường Đại học Lạc Hồng</a></li>
+              <li><a href="#">Khoa Công Nghệ Thông Tin</a></li>
+              <li><a href="#">Đề tài: Web Luyện Tập &amp; Dò CV</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 CVCheckAI - Bản quyền thuộc về Mai Huy Phong (MSSV: 125000312). All rights reserved.</p>
+          <p>Thiết kế tuân thủ tiêu chuẩn W3C HTML5 &amp; Modern CSS3 Variables.</p>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Thư viện AOS JS khởi tạo hiệu ứng cuộn trang theo yêu cầu của đề bài -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    // Khởi tạo thư viện AOS (Animate On Scroll)
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 80
+      });
+    }
+  </script>
+</body>
+</html>
