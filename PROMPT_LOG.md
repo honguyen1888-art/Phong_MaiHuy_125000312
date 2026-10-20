@@ -72,6 +72,15 @@
   - Chuyển logo thương hiệu sang dạng SVG Inline tích hợp trực tiếp trên Header của cả 4 trang, gán class `.logo-honey-word` chuyển sang màu trắng `#FFFFFF` sắc nét khi bật Dark Mode.
   - Mở rộng chiều rộng tất cả các khung viền (từ 150px lên 250px cho pill Pokemon, từ 145px lên 185px cho pill Limited, từ 150px lên 195px cho pill Độc quyền), tăng kích thước chữ hiển thị lớn hơn và bổ sung padding rộng rãi để văn bản nằm trọn vẹn 100% bên trong khung.
 
+### Lần 6: Tăng kích thước cột bên phải và hình minh họa Hero to ngang bằng với cột bên trái
+- **Prompt đã dùng:**
+  > *"Cho cái bên phải to lên bằng với cột bên trái đi."*
+- **Thách thức gặp phải:**
+  - Cột bên trái có khối lượng nội dung lớn (Pill độc quyền + Tiêu đề H1 3 dòng lớn + Đoạn văn mô tả + 2 nút CTA + Thanh thống kê 3 chỉ số), trong khi cột bên phải chỉ chứa ảnh minh họa ở tỉ lệ cột hẹp `0.85fr` khiến khung hình bị nhỏ và để lại nhiều khoảng trống màu đen phía trên và phía dưới.
+- **Cách sửa prompt (Debug prompt):**
+  - Điều chỉnh tỉ lệ CSS Grid `.hero-grid` thành `1fr 1fr` (chia đều 50-50 hoàn hảo), mở rộng kích thước ảnh `.hero-figure-wrap img` lên `max-width: 680px` và chiều cao tối thiểu `min-height: 480px`.
+  - Nâng cấp file `assets/hero-banner.svg` sang kích thước `viewBox="0 0 620 540"`, mở rộng bục trưng bày hoàng gia, phóng lớn mô hình Scale Figure trung tâm, hộp thẻ bài Pokémon TCG và boxset Light Novel Obi, tạo nên sự cân xứng thị giác hoàn hảo giữa 2 cột.*
+
 ---
 
 ## 3. Đánh giá cá nhân về quá trình Vibe Coding
