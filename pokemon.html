@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sản Phẩm Pokémon Độc Quyền - Pokémon Center Japan | HONEYVAULT</title>
+  <meta name="description" content="Chuyên trang các sản phẩm Pokémon độc quyền nhập khẩu từ Pokémon Center Tokyo, Osaka: Thẻ bài TCG Limited, Gấu bông kỷ niệm, Mô hình Pokeball đúc kim loại.">
+  <meta name="author" content="Mai Huy Phong - MSSV: 125000312">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+
+  <!-- 1. Thư viện Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- 2. Thư viện AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- Phông chữ Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- File CSS chung -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Input checkbox ẩn chuyển đổi giao diện Sáng / Tối (Dark / Light Mode) -->
+  <input type="checkbox" id="theme-toggle" aria-label="Chuyển đổi giao diện sáng tối">
+
+  <div class="page-wrapper">
+
+    <!-- ====================================================================
+         1. SEMANTIC HEADER & NAVIGATION
+         ==================================================================== -->
+    <header class="site-header animate__animated animate__fadeInDown">
+      <div class="container header-inner">
+        
+        <a href="index.html" class="brand-box" aria-label="Trang chủ HONEYVAULT">
+          <img src="assets/logo.svg" alt="HONEYVAULT Logo" class="logo-svg" width="220" height="48">
+          <span class="badge-tag">POKÉMON CENTER</span>
+        </a>
+
+        <!-- Thanh điều hướng chính -->
+        <nav class="main-nav" aria-label="Điều hướng chính">
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-item-link"><span>🏠</span> Trang Chủ</a></li>
+            <li><a href="pokemon.html" class="nav-item-link current"><span>⚡</span> Pokémon Độc Quyền</a></li>
+            <li><a href="figure.html" class="nav-item-link"><span>🎎</span> Mô Hình Figure</a></li>
+            <li><a href="manga-novel.html" class="nav-item-link"><span>📖</span> Light Novel &amp; Manga</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-right-tools">
+          <label for="theme-toggle" class="theme-switch" title="Chuyển đổi Sáng / Tối (Thuần CSS)">
+            <span class="moon-icon" aria-hidden="true">🌙</span>
+            <span class="sun-icon" aria-hidden="true">☀️</span>
+          </label>
+          <a href="#pokemon-catalog" class="btn btn-honey btn-sm">
+            <span>Bộ Sưu Tập TCG</span>
+            <span aria-hidden="true">⚡</span>
+          </a>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- ====================================================================
+         2. MAIN CONTENT AREA
+         ==================================================================== -->
+    <main>
+
+      <!-- BANNER CHUYÊN TRANG POKÉMON -->
+      <section class="hero-exclusive-section" style="padding-bottom: 2rem;">
+        <div class="container hero-grid">
+          
+          <div class="hero-text-content" data-aos="fade-right">
+            <div class="pill-exclusive">
+              <span>⚡</span> TRANG SẢN PHẨM CON 01: POKÉMON CENTER JAPAN
+            </div>
+            <h1 class="hero-headline">
+              Bộ Sưu Tập <br>
+              <span class="honey-gradient-text">Pokémon Độc Quyền</span> <br>
+              Chính Hãng Tokyo Store
+            </h1>
+            <p class="hero-subtext">
+              Toàn bộ sản phẩm được săn lùng trực tiếp từ các cửa hàng <strong>Pokémon Center Mega Tokyo</strong> và <strong>Kyoto Store</strong>. Bao gồm thẻ bài thi đấu TCG bản tiếng Nhật, hộp kim loại Trainer giới hạn và gấu bông plushie kỷ niệm không bán đại trà.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#pokemon-catalog" class="btn btn-honey">
+                <span>Xem Toàn Bộ 6 Siêu Phẩm</span>
+                <span aria-hidden="true">👇</span>
+              </a>
+              <a href="index.html" class="btn btn-outline">
+                <span>Về Trang Chủ</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-figure-wrap" data-aos="fade-left">
+            <figure>
+              <img src="assets/pokemon-thumb.svg" alt="Pokémon Center Japan Exclusives" width="460" height="340" style="filter: drop-shadow(0 15px 30px rgba(229,169,60,0.3));">
+              <figcaption class="sr-only">Hình ảnh biểu tượng sản phẩm Pokémon độc quyền</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- DANH SÁCH SẢN PHẨM POKÉMON ĐỘC QUYỀN -->
+      <section id="pokemon-catalog" class="products-display-section" style="padding-top: 1rem;">
+        <div class="container">
+          
+          <!-- Thanh lọc danh mục nhanh (Pure HTML/CSS Chips) -->
+          <div class="filter-bar-wrap" data-aos="fade-up">
+            <span style="font-weight: 800; color: var(--theme-text);">Phân loại Pokémon:</span>
+            <ul class="filter-chips-list">
+              <li><span class="filter-chip active">Tất Cả (6)</span></li>
+              <li><span class="filter-chip">Thẻ Bài TCG Hiếm</span></li>
+              <li><span class="filter-chip">Gấu Bông Kỷ Niệm</span></li>
+              <li><span class="filter-chip">Pokéball Đúc Kim Loại</span></li>
+              <li><span class="filter-chip">Hộp Quà Trainer</span></li>
+            </ul>
+            <span style="font-size: 0.85rem; color: var(--color-honey); font-weight: 700;">★ Cam kết 100% Seal Hãng</span>
+          </div>
+
+          <!-- Lưới 6 sản phẩm Pokémon độc quyền -->
+          <div class="products-grid-4">
+            
+            <!-- Sản phẩm 1 -->
+            <article class="product-item-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="product-thumb-holder">
+                <img src="assets/pokemon-thumb.svg" alt="Pikachu Kimono Edition" width="280" height="220">
+                <span class="exclusive-ribbon-badge">Bản Kỷ Niệm 25 Năm</span>
+                <span class="stock-tag-limited">Còn 3 bé</span>
+              </div>
+              <div class="product-info-body">
+                <div class="product-meta-sub">
+                  <span>Pokémon Center Kyoto</span>
+                  <span>Mã: PKM-KYO01</span>
+                </div>
+                <h4 class="product-name">Plushie Pikachu Mặc Áo Kimono Gấm Dệt Hoa Anh Đào</h4>
+                <p class="product-summary-snippet">Phiên bản giới hạn kỷ niệm mở cửa chi nhánh Kyoto. Gấm thủ công Nishijin-ori thêu chỉ vàng mật ong cao cấp.</p>
+                <div class="product-price-bar">
+                  <span class="current-price">1.850.000₫</span>
+                  <span class="original-price">2.400.000₫</span>
+                </div>
+                <div class="product-actions-group">
+                  <a href="#added-cart" class="btn btn-honey btn-sm" style="flex: 1;">🛒 Thêm Vào Giỏ</a>
+                  <a href="#added-cart" class="btn btn-dark btn-sm">Mua Ngay</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Sản phẩm 2 -->
+            <article class="product-item-card" data-aos="fade-up" data-aos-delay="150">
+              <div class="product-thumb-holder">
+                <img src="assets/pokemon-thumb.svg" alt="Charizard VMAX Ultra Premium" width="280" height="220">
+                <span class="exclusive-ribbon-badge">Thẻ Bài Vàng Dập Nổi</span>
+                <span class="stock-tag-limited">Còn 2 hộp</span>
+              </div>
+              <div class="product-info-body">
+                <div class="product-meta-sub">
+                  <span>Pokémon TCG Japan</span>
+                  <span>Mã: PKM-TCG99</span>
+                </div>
+                <h4 class="product-name">Hộp Kim Loại Charizard VMAX Ultra Premium Collection</h4>
+                <p class="product-summary-snippet">Gồm 2 thẻ kim loại dập nổi vàng mật ong, 1 playmat thi đấu cao su chống trượt và 16 gói booster packs.</p>
+                <div class="product-price-bar">
+                  <span class="current-price">4.950.000₫</span>
+                  <span class="original-price">5.800.000₫</span>
+                </div>
+                <div class="product-actions-group">
+                  <a href="#added-cart" class="btn btn-honey btn-sm" style="flex: 1;">🛒 Thêm Vào Giỏ</a>
+                  <a href="#added-cart" class="btn btn-dark btn-sm">Mua Ngay</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Sản phẩm 3 -->
+            <article class="product-item-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="product-thumb-holder">
+                <img src="assets/pokemon-thumb.svg" alt="Die-Cast Master Ball" width="280" height="220">
+                <span class="exclusive-ribbon-badge">Wand Company x Pokémon</span>
+                <span class="stock-tag-limited">Còn 1 quả</span>
+              </div>
+              <div class="product-info-body">
+                <div class="product-meta-sub">
+                  <span>Limited Edition</span>
+                  <span>Mã: PKM-WND04</span>
+                </div>
+                <h4 class="product-name">Pokéball Kim Loại Master Ball Cảm Ứng Phát Sáng</h4>
+                <p class="product-summary-snippet">Vỏ kim loại đúc die-cast nguyên khối phủ sơn bóng xe hơi, cảm biến tiệm cận tự phát sáng khi đưa tay lại gần.</p>
+                <div class="product-price-bar">
+                  <span class="current-price">3.650.000₫</span>
+                  <span class="original-price">4.200.000₫</span>
+                </div>
+                <div class="product-actions-group">
+                  <a href="#added-cart" class="btn btn-honey btn-sm" style="flex: 1;">🛒 Thêm Vào Giỏ</a>
+                  <a href="#added-cart" class="btn btn-dark btn-sm">Mua Ngay</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Sản phẩm 4 -->
+            <article class="product-item-card" data-aos="fade-up" data-aos-delay="250">
+              <div class="product-thumb-holder">
+                <img src="assets/pokemon-thumb.svg" alt="Eevee Heroes Gym Box" width="280" height="220">
+                <span class="exclusive-ribbon-badge">Gym Boxsets Hiếm</span>
+                <span class="stock-tag-limited">Còn 2 bộ</span>
+              </div>
+              <div class="product-info-body">
+                <div class="product-meta-sub">
+                  <span>Eevee Heroes Japan</span>
+                  <span>Mã: PKM-EEV08</span>
+                </div>
+                <h4 class="product-name">Bộ Hộp Quà Eevee Heroes Special Set (Nguyên Seal 100%)</h4>
+                <p class="product-summary-snippet">Dòng sản phẩm săn lùng đắt đỏ nhất hệ Eevee với card promo Espeon VMAX alternate art kèm hộp đựng bài bằng da.</p>
+                <div class="product-price-bar">
+                  <span class="current-price">12.500.000₫</span>
+                  <span class="original-price">14.000.000₫</span>
+                </div>
+                <div class="product-actions-group">
+                  <a href="#added-cart" class="btn btn-honey btn-sm" style="flex: 1;">🛒 Thêm Vào Giỏ</a>
+                  <a href="#added-cart" class="btn btn-dark btn-sm">Mua Ngay</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Sản phẩm 5 -->
+            <article class="product-item-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="product-thumb-holder">
+                <img src="assets/pokemon-thumb.svg" alt="Pikachu Pilot Tokyo" width="280" height="220">
+                <span class="exclusive-ribbon-badge">Sân Bay Haneda Exclusive</span>
+                <span class="stock-tag-limited">Còn 4 bé</span>
+              </div>
+              <div class="product-info-body">
+                <div class="product-meta-sub">
+                  <span>Haneda Airport Store</span>
+                  <span>Mã: PKM-HND12</span>
+                </div>
+                <h4 class="product-name">Pikachu Phi Công Hãng Hàng Không ANA Bản Kỷ Niệm</h4>
+                <p class="product-summary-snippet">Chỉ bán độc quyền tại sảnh quốc tế sân bay Haneda Tokyo, có cà vạt vàng mật ong và mũ phi công thêu nổi.</p>
+                <div class="product-price-bar">
+                  <span class="current-price">1.450.000₫</span>
+                  <span class="original-price">1.800.000₫</span>
+                </div>
+                <div class="product-actions-group">
+                  <a href="#added-cart" class="btn btn-honey btn-sm" style="flex: 1;">🛒 Thêm Vào Giỏ</a>
+                  <a href="#added-cart" class="btn btn-dark btn-sm">Mua Ngay</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Sản phẩm 6 -->
+            <article class="product-item-card" data-aos="fade-up" data-aos-delay="350">
+              <div class="product-thumb-holder">
+                <img src="assets/pokemon-thumb.svg" alt="Seiko x Pokemon Watch" width="280" height="220">
+                <span class="exclusive-ribbon-badge">Seiko Limited 1200 Chiếc</span>
+                <span class="stock-tag-limited">Chỉ còn 1 chiếc</span>
+              </div>
+              <div class="product-info-body">
+                <div class="product-meta-sub">
+                  <span>Seiko Japan</span>
+                  <span>Mã: PKM-SKO70</span>
+                </div>
+                <h4 class="product-name">Đồng Hồ Cơ Seiko x Pokémon Mewtwo Edition Số Serial 0422</h4>
+                <p class="product-summary-snippet">Mặt số kính sapphire, kim giây hình đuôi Mewtwo mạ tím và vàng mật ong. Kèm hộp nhung sang trọng và thẻ bảo hành quốc tế.</p>
+                <div class="product-price-bar">
+                  <span class="current-price">15.800.000₫</span>
+                  <span class="original-price">18.500.000₫</span>
+                </div>
+                <div class="product-actions-group">
+                  <a href="#added-cart" class="btn btn-honey btn-sm" style="flex: 1;">🛒 Thêm Vào Giỏ</a>
+                  <a href="#added-cart" class="btn btn-dark btn-sm">Mua Ngay</a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- THÔNG BÁO GIỎ HÀNG THUẦN CSS -->
+    <div id="added-cart" class="cart-toast-notify" role="alert">
+      <span style="font-size: 1.8rem;">⚡</span>
+      <div class="toast-msg-body">
+        <strong>Đã Thêm Pokémon Độc Quyền!</strong>
+        <p>Vật phẩm đã được bảo lưu an toàn trong giỏ hàng của bạn.</p>
+      </div>
+      <a href="#" class="toast-close-x" title="Đóng thông báo">&times;</a>
+    </div>
+
+    <!-- ====================================================================
+         3. SEMANTIC FOOTER
+         ==================================================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        
+        <div class="footer-grid-4">
+          <div class="footer-col-brand">
+            <h4><span>HONEY</span>VAULT</h4>
+            <p>Chuyên trang phân phối sản phẩm Pokémon chính hãng nhập khẩu trực tiếp từ hệ thống Pokémon Center Nhật Bản.</p>
+            <span class="footer-author-pill">
+              SV: <strong>Mai Huy Phong</strong> (MSSV: <strong>125000312</strong>)
+            </span>
+          </div>
+
+          <div class="footer-column-menu">
+            <h5>Liên Kết Nhanh</h5>
+            <ul class="footer-nav-list">
+              <li><a href="index.html">🏠 Trang Chủ HONEYVAULT</a></li>
+              <li><a href="pokemon.html">⚡ Pokémon Center Japan</a></li>
+              <li><a href="figure.html">🎎 Mô Hình Figure Độc Quyền</a></li>
+              <li><a href="manga-novel.html">📖 Light Novel &amp; Manga</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column-menu">
+            <h5>Bảo Chứng Pokémon</h5>
+            <ul class="footer-nav-list">
+              <li><a href="#">Tem phản quang The Pokémon Company</a></li>
+              <li><a href="#">Hóa đơn xuất xưởng Tokyo</a></li>
+              <li><a href="#">Đóng gói hộp chống sốc</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column-menu">
+            <h5>Đồ Án Thiết Kế Web</h5>
+            <ul class="footer-nav-list">
+              <li><a href="#">Đại học Lạc Hồng</a></li>
+              <li><a href="#">Khoa Công nghệ thông tin</a></li>
+              <li><a href="#">Trang sản phẩm con 01: Pokémon</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <p>&copy; 2026 HONEYVAULT - Mai Huy Phong (MSSV: 125000312). Chuẩn HTML5 Semantic &amp; CSS Variables.</p>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    if (typeof AOS !== 'undefined') {
+      AOS.init({ duration: 800, once: true, offset: 70 });
+    }
+  </script>
+</body>
+</html>

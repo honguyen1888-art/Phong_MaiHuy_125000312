@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 240" width="300" height="240">
+  <defs>
+    <linearGradient id="novelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF9"/>
+      <stop offset="100%" stop-color="#FBEFD9"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="240" rx="14" fill="url(#novelGrad)"/>
+  <!-- Light Novel Books Group -->
+  <!-- Back book -->
+  <rect x="75" y="45" width="110" height="140" rx="6" fill="#141414" transform="rotate(-8 130 115)"/>
+  <!-- Front book -->
+  <g transform="translate(110, 35)">
+    <rect x="0" y="0" width="105" height="145" rx="6" fill="#FFFFFF" stroke="#141414" stroke-width="3"/>
+    <!-- Cover graphic -->
+    <rect x="12" y="15" width="80" height="10" rx="2" fill="#E5A93C"/>
+    <rect x="12" y="32" width="55" height="6" rx="2" fill="#141414"/>
+    <circle cx="52" cy="75" r="22" fill="#FBEFD9" stroke="#E5A93C" stroke-width="2"/>
+    <text x="52" y="80" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="900" fill="#E5A93C" text-anchor="middle">LN</text>
+    <!-- Obi strip (Đai sách Nhật Bản) -->
+    <rect x="0" y="110" width="105" height="28" fill="#E5A93C"/>
+    <text x="52" y="128" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="900" fill="#141414" text-anchor="middle">BẢN GIỚI HẠN OBI</text>
+  </g>
+  <!-- Tag -->
+  <rect x="70" y="195" width="160" height="30" rx="6" fill="#141414"/>
+  <text x="150" y="215" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="900" fill="#E5A93C" text-anchor="middle">LIGHT NOVEL &amp; MANGA</text>
+</svg>

@@ -1,56 +1,61 @@
 /* ==========================================================================
-   PROJECT: WEB GIÚP LUYỆN TẬP VÀ DÒ CV (CVCheckAI)
+   PROJECT: HONEYVAULT - HỆ THỐNG PHÂN PHỐI SẢN PHẨM ĐỘC QUYỀN NHẬT BẢN
    AUTHOR: Mai Huy Phong - MSSV: 125000312
    SUBJECT: Thiết Kế Web - Trường Đại Học Lạc Hồng
-   LANGUAGES: Pure HTML5 & CSS3 (Không sử dụng thêm ngôn ngữ nào khác)
-   PALETTE: #393E46, #00ADB5, #AAD8D3, #EEEEEE
+   LANGUAGES: Pure HTML5 & CSS3 (Không sử dụng ngôn ngữ nào khác)
+   PALETTE: Trắng (#FFFFFF), Đen (#141414), Vàng Mật Ong (#E5A93C)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. CSS VARIABLES & THEME SETUP
+   1. CSS VARIABLES (BẢNG MÀU CHỦ ĐẠO & THIẾT LẬP GIAO DIỆN)
    -------------------------------------------------------------------------- */
 :root {
-  /* Bảng 4 màu chuẩn chỉ định theo yêu cầu đề bài */
-  --color-primary: #00ADB5;      /* Teal / Cyan Accent */
-  --color-primary-dark: #00848a; /* Hover primary state */
-  --color-secondary: #AAD8D3;    /* Soft Mint / Light Pastel Teal */
-  --color-dark: #393E46;         /* Slate / Charcoal */
-  --color-light: #EEEEEE;        /* Off-white / Canvas background */
+  /* Bộ 3 màu chủ đạo theo yêu cầu: Trắng - Đen - Vàng Mật Ong */
+  --color-honey: #E5A93C;        /* Vàng mật ong chủ đạo rực rỡ */
+  --color-honey-hover: #C48721;  /* Vàng mật ong đậm khi hover */
+  --color-honey-light: #FBEFD9;  /* Kem vàng mật ong dịu nhẹ */
+  --color-honey-glow: rgba(229, 169, 60, 0.28); /* Hiệu ứng tỏa sáng */
+  
+  --color-black: #141414;        /* Đen huyền bí sang trọng */
+  --color-black-card: #1E1E1E;   /* Đen card cho dark mode */
+  --color-black-soft: #2A2A2A;   /* Đen mềm phân cách */
+  
+  --color-white: #FFFFFF;        /* Trắng tinh khôi */
+  --color-ivory: #FFFDF9;        /* Nền trắng ngà mật ong thanh lịch */
+  --color-gray-light: #F4F0E8;   /* Xám be nhạt */
+  --color-gray-text: #666666;    /* Chữ phụ */
+  --color-border: #E8DFCE;       /* Đường viền chuẩn */
 
-  /* Màu bổ trợ & Ngữ cảnh */
-  --color-darker: #222831;       /* Nền sâu Dark mode */
-  --color-white: #FFFFFF;        /* Trắng tuyệt đối cho card nền */
-  --color-success: #10B981;      /* Xanh lá trạng thái đạt chuẩn */
-  --color-warning: #F59E0B;      /* Vàng cảnh báo */
-  --color-danger: #EF4444;       /* Đỏ cảnh báo lỗi / nút xóa */
-  --color-border: #D0E4E2;       /* Đường viền thanh lịch */
-  --color-card-bg: #FFFFFF;      /* Nền thẻ nội dung */
-  --color-text: #393E46;         /* Màu chữ chính */
-  --color-text-muted: #59616D;   /* Màu chữ phụ dịu mắt */
-  --color-bg-alt: #F3F8F8;       /* Nền phân cách section */
+  /* Chế độ nền hiện tại (Mặc định: Light Mode sang trọng) */
+  --theme-bg: var(--color-ivory);
+  --theme-card-bg: var(--color-white);
+  --theme-text: var(--color-black);
+  --theme-text-muted: var(--color-gray-text);
+  --theme-border: var(--color-border);
+  --theme-header-bg: rgba(255, 253, 249, 0.94);
+  --theme-shadow-sm: 0 4px 14px rgba(20, 20, 20, 0.06);
+  --theme-shadow-md: 0 10px 30px rgba(20, 20, 20, 0.1);
+  --theme-shadow-lg: 0 20px 48px rgba(229, 169, 60, 0.18);
 
-  /* Typography */
-  --font-main: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
-  --font-code: 'JetBrains Mono', Consolas, monospace;
+  /* Phông chữ & Typography */
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
   /* Spacing */
-  --spacing-xs: 0.35rem;
-  --spacing-sm: 0.65rem;
-  --spacing-md: 1.15rem;
-  --spacing-lg: 1.75rem;
-  --spacing-xl: 2.75rem;
-  --spacing-xxl: 4.5rem;
+  --space-xs: 0.35rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3.5rem;
+  --space-xxl: 5rem;
 
-  /* Bo góc & Đổ bóng */
+  /* Bo góc & Chuyển động */
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
   --radius-full: 9999px;
-  --shadow-sm: 0 4px 12px rgba(57, 62, 70, 0.06);
-  --shadow-md: 0 10px 28px rgba(57, 62, 70, 0.1);
-  --shadow-lg: 0 20px 42px rgba(57, 62, 70, 0.14);
-  --transition-fast: all 0.22s ease-in-out;
-  --transition-smooth: all 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  --trans-fast: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --trans-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* --------------------------------------------------------------------------
@@ -62,30 +67,29 @@
   pointer-events: none;
 }
 
-#theme-toggle:checked ~ .site-wrapper {
-  --color-light: #222831;
-  --color-white: #2D333B;
-  --color-card-bg: #2D333B;
-  --color-text: #EEEEEE;
-  --color-text-muted: #AAD8D3;
-  --color-border: #3E4651;
-  --color-bg-alt: #1D2228;
-  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.55);
-  --shadow-lg: 0 20px 44px rgba(0, 0, 0, 0.7);
-  background-color: #222831;
-  color: #EEEEEE;
+#theme-toggle:checked ~ .page-wrapper {
+  --theme-bg: #111111;
+  --theme-card-bg: #1B1B1B;
+  --theme-text: #FFFFFF;
+  --theme-text-muted: #B8B0A2;
+  --theme-border: #2E2E2E;
+  --theme-header-bg: rgba(17, 17, 17, 0.94);
+  --theme-shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.5);
+  --theme-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.7);
+  --theme-shadow-lg: 0 20px 48px rgba(229, 169, 60, 0.25);
+  background-color: #111111;
+  color: #FFFFFF;
 }
 
-#theme-toggle:checked ~ .site-wrapper .logo-svg text[fill="currentColor"] {
-  fill: #EEEEEE;
+#theme-toggle:checked ~ .page-wrapper .logo-svg text[fill="#141414"] {
+  fill: #FFFFFF;
 }
 
-#theme-toggle:checked ~ .site-wrapper .toggle-label .icon-sun {
+#theme-toggle:checked ~ .page-wrapper .theme-switch .sun-icon {
   display: inline-block;
 }
 
-#theme-toggle:checked ~ .site-wrapper .toggle-label .icon-moon {
+#theme-toggle:checked ~ .page-wrapper .theme-switch .moon-icon {
   display: none;
 }
 
@@ -104,16 +108,16 @@ html {
 }
 
 body {
-  font-family: var(--font-main);
-  background-color: var(--color-light);
-  color: var(--color-text);
+  font-family: var(--font-body);
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
   line-height: 1.65;
   overflow-x: hidden;
   transition: background-color 0.35s ease, color 0.35s ease;
 }
 
-.site-wrapper {
-  background-color: var(--color-light);
+.page-wrapper {
+  background-color: var(--theme-bg);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -123,7 +127,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-  transition: var(--transition-fast);
+  transition: var(--trans-fast);
 }
 
 img, svg {
@@ -132,15 +136,15 @@ img, svg {
   display: block;
 }
 
-button, input, textarea, select {
+button, input, select {
   font-family: inherit;
 }
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1240px;
   margin-inline: auto;
-  padding-inline: var(--spacing-lg);
+  padding-inline: var(--space-md);
 }
 
 .sr-only {
@@ -155,45 +159,47 @@ button, input, textarea, select {
 }
 
 /* --------------------------------------------------------------------------
-   3. SEMANTIC HEADER & NAVIGATION
+   3. SEMANTIC HEADER & MAIN NAVIGATION
    -------------------------------------------------------------------------- */
 header.site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: rgba(238, 238, 238, 0.94);
+  background-color: var(--theme-header-bg);
   backdrop-filter: blur(14px);
-  border-bottom: 1.5px solid var(--color-border);
+  border-bottom: 1.5px solid var(--theme-border);
   transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 
-#theme-toggle:checked ~ .site-wrapper header.site-header {
-  background-color: rgba(34, 40, 49, 0.94);
-  border-bottom-color: #393E46;
-}
-
-.header-container {
+.header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-block: var(--spacing-sm);
-  gap: var(--spacing-md);
+  padding-block: 0.85rem;
+  gap: var(--space-md);
 }
 
-.logo-group {
+.brand-box {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: 0.65rem;
 }
 
-.brand-badge {
-  background-color: var(--color-primary);
-  color: #FFFFFF;
+.badge-tag {
+  background-color: var(--color-black);
+  color: var(--color-honey);
   font-size: 0.7rem;
-  font-weight: 800;
-  padding: 3px 8px;
+  font-weight: 900;
+  padding: 4px 10px;
   border-radius: var(--radius-full);
-  letter-spacing: 0.8px;
+  letter-spacing: 1px;
+  border: 1px solid var(--color-honey);
+  text-transform: uppercase;
+}
+
+#theme-toggle:checked ~ .page-wrapper .badge-tag {
+  background-color: var(--color-honey);
+  color: var(--color-black);
 }
 
 nav.main-nav {
@@ -201,149 +207,155 @@ nav.main-nav {
   align-items: center;
 }
 
-.nav-list {
+.nav-links {
   display: flex;
   align-items: center;
   list-style: none;
   gap: 0.4rem;
 }
 
-.nav-link {
-  font-weight: 600;
-  font-size: 0.92rem;
+.nav-item-link {
+  font-weight: 700;
+  font-size: 0.95rem;
   padding: 0.55rem 0.95rem;
   border-radius: var(--radius-sm);
-  color: var(--color-text);
+  color: var(--theme-text);
   position: relative;
-  transition: var(--transition-fast);
+  transition: var(--trans-fast);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
 }
 
-.nav-link:hover,
-.nav-link:focus {
-  color: var(--color-primary);
-  background-color: rgba(0, 173, 181, 0.12);
+.nav-item-link:hover,
+.nav-item-link:focus {
+  color: var(--color-honey);
+  background-color: var(--color-honey-light);
   outline: none;
 }
 
-.nav-link.active-link {
-  color: var(--color-primary);
-  background-color: rgba(0, 173, 181, 0.08);
+#theme-toggle:checked ~ .page-wrapper .nav-item-link:hover,
+#theme-toggle:checked ~ .page-wrapper .nav-item-link:focus {
+  background-color: rgba(229, 169, 60, 0.15);
 }
 
-.header-actions {
+.nav-item-link.current {
+  color: var(--color-black);
+  background-color: var(--color-honey);
+}
+
+#theme-toggle:checked ~ .page-wrapper .nav-item-link.current {
+  color: var(--color-black);
+  background-color: var(--color-honey);
+}
+
+.header-right-tools {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: var(--space-sm);
 }
 
-/* Nút chuyển đổi giao diện Sáng / Tối */
-.toggle-label {
+/* Theme Switcher Button */
+.theme-switch {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 42px;
   height: 42px;
   border-radius: var(--radius-full);
-  background-color: var(--color-card-bg);
-  border: 1.5px solid var(--color-border);
+  background-color: var(--theme-card-bg);
+  border: 1.5px solid var(--theme-border);
   cursor: pointer;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition-fast);
-  user-select: none;
+  box-shadow: var(--theme-shadow-sm);
+  transition: var(--trans-fast);
 }
 
-.toggle-label:hover,
-.toggle-label:focus {
-  border-color: var(--color-primary);
+.theme-switch:hover,
+.theme-switch:focus {
+  border-color: var(--color-honey);
   transform: translateY(-2px) scale(1.05);
 }
 
-.toggle-label .icon-sun {
+.theme-switch .sun-icon {
   display: none;
   font-size: 1.25rem;
 }
 
-.toggle-label .icon-moon {
+.theme-switch .moon-icon {
   display: inline-block;
   font-size: 1.25rem;
 }
 
 /* --------------------------------------------------------------------------
-   CÁC LOẠI NÚT BẤM (BUTTONS SYSTEM)
+   4. BUTTONS & UI CONTROLS
    -------------------------------------------------------------------------- */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.68rem 1.4rem;
-  font-weight: 700;
-  font-size: 0.93rem;
+  gap: 0.55rem;
+  padding: 0.72rem 1.5rem;
+  font-weight: 800;
+  font-size: 0.95rem;
   border-radius: var(--radius-sm);
   cursor: pointer;
   border: 2px solid transparent;
-  transition: var(--transition-fast);
+  transition: var(--trans-fast);
   white-space: nowrap;
 }
 
-.btn-primary {
-  background-color: var(--color-primary);
-  color: #FFFFFF;
+.btn-honey {
+  background-color: var(--color-honey);
+  color: var(--color-black);
 }
 
-.btn-primary:hover,
-.btn-primary:focus {
-  background-color: var(--color-primary-dark);
-  box-shadow: 0 6px 18px rgba(0, 173, 181, 0.38);
-  transform: translateY(-2px);
+.btn-honey:hover,
+.btn-honey:focus {
+  background-color: var(--color-honey-hover);
+  box-shadow: 0 6px 20px var(--color-honey-glow);
+  transform: translateY(-3px);
   outline: none;
 }
 
-.btn-secondary {
-  background-color: var(--color-secondary);
-  color: var(--color-dark);
+.btn-dark {
+  background-color: var(--color-black);
+  color: var(--color-honey);
+  border: 1.5px solid var(--color-honey);
 }
 
-.btn-secondary:hover,
-.btn-secondary:focus {
-  background-color: #96ccc7;
-  box-shadow: 0 4px 14px rgba(170, 216, 211, 0.45);
-  transform: translateY(-2px);
+.btn-dark:hover,
+.btn-dark:focus {
+  background-color: var(--color-honey);
+  color: var(--color-black);
+  box-shadow: 0 6px 20px var(--color-honey-glow);
+  transform: translateY(-3px);
   outline: none;
 }
 
 .btn-outline {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  border-color: var(--theme-border);
+  color: var(--theme-text);
   background: transparent;
 }
 
 .btn-outline:hover,
 .btn-outline:focus {
-  background-color: var(--color-primary);
-  color: #FFFFFF;
+  border-color: var(--color-honey);
+  color: var(--color-honey);
   transform: translateY(-2px);
   outline: none;
 }
 
-.btn-danger {
-  background-color: var(--color-danger);
-  color: #FFFFFF;
-}
-
-.btn-danger:hover,
-.btn-danger:focus {
-  background-color: #dc2626;
-  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.35);
-  transform: translateY(-2px);
-  outline: none;
+.btn-sm {
+  padding: 0.45rem 0.95rem;
+  font-size: 0.85rem;
 }
 
 /* --------------------------------------------------------------------------
-   4. HERO SECTION (TRANG CHỦ)
+   5. HERO BANNER (TRANG CHỦ ĐỘC QUYỀN)
    -------------------------------------------------------------------------- */
-.hero-section {
-  padding-block: var(--spacing-xxl) var(--spacing-xl);
+.hero-exclusive-section {
+  padding-block: var(--space-xl) var(--space-lg);
   position: relative;
   overflow: hidden;
 }
@@ -352,1071 +364,675 @@ nav.main-nav {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  gap: var(--spacing-xxl);
+  gap: var(--space-xl);
 }
 
-.hero-badge-pill {
+.pill-exclusive {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: rgba(0, 173, 181, 0.12);
-  color: var(--color-primary);
-  padding: 0.45rem 1.1rem;
+  background-color: var(--color-honey-light);
+  color: var(--color-black);
+  padding: 0.45rem 1.15rem;
   border-radius: var(--radius-full);
-  font-weight: 700;
-  font-size: 0.88rem;
-  border: 1px solid rgba(0, 173, 181, 0.3);
-  margin-bottom: var(--spacing-md);
-}
-
-.hero-title {
-  font-size: 2.85rem;
-  line-height: 1.2;
   font-weight: 800;
-  color: var(--color-text);
-  margin-bottom: var(--spacing-md);
+  font-size: 0.86rem;
+  border: 1.5px solid var(--color-honey);
+  margin-bottom: var(--space-md);
+}
+
+#theme-toggle:checked ~ .page-wrapper .pill-exclusive {
+  background-color: rgba(229, 169, 60, 0.18);
+  color: var(--color-honey);
+}
+
+.hero-headline {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.18;
   letter-spacing: -0.5px;
+  color: var(--theme-text);
+  margin-bottom: var(--space-md);
 }
 
-.text-gradient {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #00777d 100%);
+.honey-gradient-text {
+  background: linear-gradient(135deg, #FFC107 0%, #E5A93C 50%, #C48721 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-#theme-toggle:checked ~ .site-wrapper .text-gradient {
-  background: linear-gradient(135deg, #00ADB5 0%, #AAD8D3 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-description {
+.hero-subtext {
   font-size: 1.15rem;
-  color: var(--color-text-muted);
-  margin-bottom: var(--spacing-lg);
+  color: var(--theme-text-muted);
+  margin-bottom: var(--space-lg);
   max-width: 580px;
 }
 
-.hero-actions {
+.hero-cta-group {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
 }
 
-.hero-stats {
+.hero-highlights-bar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-md);
-  padding-top: var(--spacing-lg);
-  border-top: 1.5px solid var(--color-border);
+  gap: var(--space-md);
+  padding-top: var(--space-lg);
+  border-top: 1.5px solid var(--theme-border);
 }
 
-.stat-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.stat-number {
+.highlight-stat-box h4 {
   font-size: 1.85rem;
-  font-weight: 800;
-  color: var(--color-primary);
+  font-weight: 900;
+  color: var(--color-honey);
   line-height: 1;
 }
 
-.stat-label {
-  font-size: 0.84rem;
-  color: var(--color-text-muted);
+.highlight-stat-box p {
+  font-size: 0.85rem;
+  color: var(--theme-text-muted);
   margin-top: 0.35rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-.hero-visual {
-  position: relative;
+.hero-figure-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  animation: floatArt 5.5s ease-in-out infinite alternate;
 }
 
-.hero-img-box {
-  width: 100%;
-  max-width: 480px;
-  filter: drop-shadow(0 20px 30px rgba(57, 62, 70, 0.16));
-  animation: floatSlow 5s ease-in-out infinite alternate;
-}
-
-@keyframes floatSlow {
+@keyframes floatArt {
   0% { transform: translateY(0px); }
-  100% { transform: translateY(-14px); }
+  100% { transform: translateY(-16px); }
 }
 
 /* --------------------------------------------------------------------------
-   5. CÁC TÍNH NĂNG NỔI BẬT (FEATURES GRID)
+   6. 3 DANH MỤC SẢN PHẨM CON ĐẶC QUYỀN (3 SUBPAGE CARDS)
    -------------------------------------------------------------------------- */
-.section-heading-center {
-  text-align: center;
-  max-width: 740px;
-  margin-inline: auto;
-  margin-bottom: var(--spacing-xl);
+.categories-preview-section {
+  padding-block: var(--space-xl);
+  background-color: var(--color-gray-light);
+  transition: background-color 0.35s ease;
 }
 
-.sub-title {
-  color: var(--color-primary);
+#theme-toggle:checked ~ .page-wrapper .categories-preview-section {
+  background-color: #171717;
+}
+
+.section-title-wrap {
+  text-align: center;
+  max-width: 760px;
+  margin-inline: auto;
+  margin-bottom: var(--space-xl);
+}
+
+.tag-label {
+  color: var(--color-honey);
   text-transform: uppercase;
   font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 1.8px;
+  font-weight: 900;
+  letter-spacing: 2px;
   display: block;
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 0.35rem;
 }
 
-.section-title {
-  font-size: 2.25rem;
-  font-weight: 800;
+.main-heading {
+  font-size: 2.35rem;
+  font-weight: 900;
   line-height: 1.25;
-  color: var(--color-text);
-  margin-bottom: var(--spacing-sm);
+  color: var(--theme-text);
+  margin-bottom: var(--space-sm);
   letter-spacing: -0.4px;
 }
 
-.section-desc {
-  color: var(--color-text-muted);
+.sub-heading {
+  color: var(--theme-text-muted);
   font-size: 1.05rem;
 }
 
-.features-section {
-  padding-block: var(--spacing-xxl);
-  background-color: var(--color-bg-alt);
-}
-
-.features-grid {
+.categories-grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--spacing-lg);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
 }
 
-.feature-card {
-  background-color: var(--color-card-bg);
-  border: 1.5px solid var(--color-border);
+.category-pillar-card {
+  background-color: var(--theme-card-bg);
+  border: 2px solid var(--theme-border);
   border-radius: var(--radius-md);
-  padding: var(--spacing-lg);
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition-smooth);
+  overflow: hidden;
+  box-shadow: var(--theme-shadow-sm);
+  transition: var(--trans-smooth);
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-.feature-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-primary);
+.category-pillar-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--color-honey);
+  box-shadow: var(--theme-shadow-lg);
 }
 
-.feature-icon-wrapper {
-  width: 56px;
-  height: 56px;
+.pillar-img-box {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pillar-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.category-pillar-card:hover .pillar-img-box img {
+  transform: scale(1.08);
+}
+
+.pillar-content-box {
+  padding: var(--space-lg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pillar-badge-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.pillar-category-name {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: var(--color-honey);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.pillar-item-count {
+  font-size: 0.75rem;
+  background-color: var(--color-honey-light);
+  color: var(--color-black);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+}
+
+#theme-toggle:checked ~ .page-wrapper .pillar-item-count {
+  background-color: rgba(229, 169, 60, 0.2);
+  color: var(--color-honey);
+}
+
+.pillar-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 0.65rem;
+  color: var(--theme-text);
+  line-height: 1.3;
+}
+
+.pillar-desc {
+  color: var(--theme-text-muted);
+  font-size: 0.93rem;
+  margin-bottom: var(--space-md);
+  flex: 1;
+  line-height: 1.6;
+}
+
+.pillar-footer-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1.5px solid var(--theme-border);
+  padding-top: var(--space-md);
+}
+
+.link-explore {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--color-honey);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.link-explore:hover {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   7. PRODUCT CARDS & SHOWCASE GRID (DÙNG CHO CẢ 3 TRANG CON)
+   -------------------------------------------------------------------------- */
+.products-display-section {
+  padding-block: var(--space-xl);
+}
+
+.filter-bar-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--theme-card-bg);
+  border: 1.5px solid var(--theme-border);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--theme-shadow-sm);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.filter-chips-list {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.filter-chip {
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: 1.5px solid var(--theme-border);
+  color: var(--theme-text);
+  cursor: pointer;
+  transition: var(--trans-fast);
+}
+
+.filter-chip:hover,
+.filter-chip.active {
+  background-color: var(--color-honey);
+  color: var(--color-black);
+  border-color: var(--color-honey);
+}
+
+.products-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.product-item-card {
+  background-color: var(--theme-card-bg);
+  border: 1.5px solid var(--theme-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--theme-shadow-sm);
+  transition: var(--trans-smooth);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.product-item-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-honey);
+  box-shadow: var(--theme-shadow-md);
+}
+
+.product-thumb-holder {
+  width: 100%;
+  height: 230px;
+  background: radial-gradient(circle, #FFF8EC 0%, #F5E8D2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#theme-toggle:checked ~ .page-wrapper .product-thumb-holder {
+  background: radial-gradient(circle, #2A2419 0%, #171510 100%);
+}
+
+.product-thumb-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1.25rem;
+  transition: transform 0.4s ease;
+}
+
+.product-item-card:hover .product-thumb-holder img {
+  transform: scale(1.08);
+}
+
+.exclusive-ribbon-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--color-black);
+  color: var(--color-honey);
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 4px 10px;
   border-radius: var(--radius-sm);
-  background-color: rgba(0, 173, 181, 0.12);
-  color: var(--color-primary);
+  border: 1.2px solid var(--color-honey);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.stock-tag-limited {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+.product-info-body {
+  padding: var(--space-md);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-meta-sub {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--color-honey);
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.product-name {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--theme-text);
+  line-height: 1.35;
+  margin-bottom: 0.45rem;
+}
+
+.product-summary-snippet {
+  font-size: 0.85rem;
+  color: var(--theme-text-muted);
+  line-height: 1.5;
+  margin-bottom: var(--space-md);
+  flex: 1;
+}
+
+.product-price-bar {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin-bottom: var(--space-md);
+}
+
+.current-price {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: var(--color-honey);
+}
+
+.original-price {
+  font-size: 0.92rem;
+  color: var(--theme-text-muted);
+  text-decoration: line-through;
+}
+
+.product-actions-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. PURE CSS MODAL & CART TOAST NOTIFICATION
+   -------------------------------------------------------------------------- */
+.cart-toast-notify {
+  display: none;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  background-color: var(--color-black);
+  color: #FFFFFF;
+  border: 2px solid var(--color-honey);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.4rem;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+  align-items: center;
+  gap: 1rem;
+  animation: slideToastUp 0.35s ease;
+}
+
+@keyframes slideToastUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+#added-cart:target,
+#ordered-success:target {
+  display: flex;
+}
+
+.toast-msg-body strong {
+  color: var(--color-honey);
+  display: block;
+  font-size: 1rem;
+}
+
+.toast-msg-body p {
+  font-size: 0.85rem;
+  color: #E0E0E0;
+}
+
+.toast-close-x {
+  font-size: 1.4rem;
+  color: var(--color-honey);
+  line-height: 1;
+  font-weight: bold;
+}
+
+/* --------------------------------------------------------------------------
+   9. CAM KẾT HÀNG ĐỘC QUYỀN CHÍNH HÃNG (AUTHENTIC GUARANTEE)
+   -------------------------------------------------------------------------- */
+.guarantee-section {
+  padding-block: var(--space-xl);
+  background: linear-gradient(135deg, #141414 0%, #1F1F1F 100%);
+  color: #FFFFFF;
+  border-block: 2.5px solid var(--color-honey);
+}
+
+.guarantee-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+.guarantee-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.guarantee-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  background-color: rgba(229, 169, 60, 0.15);
+  border: 1.5px solid var(--color-honey);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
-  margin-bottom: var(--spacing-md);
+  color: var(--color-honey);
+  margin-bottom: var(--space-sm);
 }
 
-.feature-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: var(--color-text);
-}
-
-.feature-card p {
-  color: var(--color-text-muted);
-  font-size: 0.92rem;
-  line-height: 1.6;
-}
-
-.feature-badge {
-  display: inline-block;
-  margin-top: auto;
-  padding-top: var(--spacing-md);
-  color: var(--color-primary);
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-
-/* --------------------------------------------------------------------------
-   6. SỬA CV & CHATBOT AI (CV STUDIO SECTION)
-   -------------------------------------------------------------------------- */
-.cv-studio-section {
-  padding-block: var(--spacing-xxl);
-}
-
-.studio-grid {
-  display: grid;
-  grid-template-columns: 1.25fr 0.85fr;
-  gap: var(--spacing-xl);
-  align-items: start;
-}
-
-.form-card {
-  background-color: var(--color-card-bg);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-xl);
-  box-shadow: var(--shadow-md);
-}
-
-.card-header-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1.5px solid var(--color-border);
-  padding-bottom: var(--spacing-md);
-  margin-bottom: var(--spacing-lg);
-}
-
-.card-header-bar h3 {
-  font-size: 1.35rem;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--color-text);
-}
-
-.form-grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-md);
-}
-
-.form-group {
-  margin-bottom: var(--spacing-md);
-}
-
-.form-group.full-width {
-  grid-column: 1 / -1;
-}
-
-.form-group label {
-  display: block;
-  font-weight: 700;
-  font-size: 0.88rem;
-  margin-bottom: 0.35rem;
-  color: var(--color-text);
-}
-
-.form-control {
-  width: 100%;
-  padding: 0.7rem 0.95rem;
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background-color: transparent;
-  color: var(--color-text);
-  font-size: 0.95rem;
-  transition: var(--transition-fast);
-}
-
-.form-control:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(0, 173, 181, 0.22);
-}
-
-textarea.form-control {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.form-actions-bar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-lg);
-  padding-top: var(--spacing-lg);
-  border-top: 1.5px solid var(--color-border);
-}
-
-.action-buttons-group {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.cv-status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.85rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.82rem;
-  font-weight: 700;
-  background-color: rgba(16, 185, 129, 0.15);
-  color: var(--color-success);
-}
-
-/* TOAST THÔNG BÁO LƯU CV BẰNG THUẦN CSS :TARGET */
-.save-toast-banner {
-  display: none;
-  background-color: rgba(16, 185, 129, 0.15);
-  border: 1.5px solid var(--color-success);
-  border-radius: var(--radius-sm);
-  padding: var(--spacing-sm) var(--spacing-md);
-  margin-bottom: var(--spacing-md);
-  color: var(--color-text);
-  align-items: center;
-  justify-content: space-between;
-  animation: fadeInDown 0.4s ease;
-}
-
-#save-notification:target {
-  display: flex;
-}
-
-.toast-text {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-}
-
-.toast-close-btn {
-  font-size: 1.3rem;
-  color: var(--color-text-muted);
-  line-height: 1;
-}
-
-.toast-close-btn:hover {
-  color: var(--color-text);
-}
-
-/* CỘT PHẢI: ATS METER & CHATBOT AI */
-.ai-companion-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-}
-
-.ats-score-meter {
-  background-color: var(--color-card-bg);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-lg);
-  box-shadow: var(--shadow-sm);
-}
-
-.score-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: var(--spacing-sm);
-}
-
-.score-top span {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--color-text-muted);
-  letter-spacing: 0.8px;
-}
-
-.score-number {
-  font-size: 2.3rem;
-  font-weight: 800;
-  color: var(--color-primary);
-}
-
-.score-bar-bg {
-  width: 100%;
-  height: 12px;
-  background-color: var(--color-border);
-  border-radius: var(--radius-full);
-  overflow: hidden;
-  margin-bottom: var(--spacing-sm);
-}
-
-.score-bar-fill {
-  width: 92%;
-  height: 100%;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-  border-radius: var(--radius-full);
-}
-
-.score-assessment {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--color-success);
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-/* HỘP CHATBOT AI */
-.chatbot-box {
-  background-color: var(--color-card-bg);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  display: flex;
-  flex-direction: column;
-  height: 480px;
-}
-
-.chat-header {
-  background-color: var(--color-dark);
-  color: #FFFFFF;
-  padding: 0.9rem 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.chat-bot-info {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.bot-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-full);
-  background-color: var(--color-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-}
-
-.bot-title {
-  font-size: 0.95rem;
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-.bot-status {
-  font-size: 0.73rem;
-  color: var(--color-secondary);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.pulse-dot {
-  width: 7px;
-  height: 7px;
-  background-color: #10B981;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.chat-messages {
-  flex: 1;
-  padding: var(--spacing-md);
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-  background-color: var(--color-bg-alt);
-}
-
-.chat-bubble {
-  max-width: 86%;
-  padding: 0.75rem 1.05rem;
-  border-radius: var(--radius-md);
-  font-size: 0.89rem;
-  line-height: 1.55;
-  animation: fadeIn 0.3s ease;
-}
-
-.chat-bubble.bot {
-  align-self: flex-start;
-  background-color: var(--color-card-bg);
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-  border-bottom-left-radius: 3px;
-}
-
-.chat-bubble.user {
-  align-self: flex-end;
-  background-color: var(--color-primary);
-  color: #FFFFFF;
-  border-bottom-right-radius: 3px;
-}
-
-.chat-bubble strong {
-  color: var(--color-primary);
-}
-
-.chat-bubble.user strong {
-  color: #FFFFFF;
-}
-
-.chat-suggestions-pill {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.5rem;
-}
-
-.pill-item {
-  font-size: 0.75rem;
-  background-color: rgba(0, 173, 181, 0.12);
-  color: var(--color-primary);
-  padding: 3px 9px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(0, 173, 181, 0.3);
-}
-
-.chat-input-area {
-  padding: var(--spacing-sm);
-  background-color: var(--color-card-bg);
-  border-top: 1.5px solid var(--color-border);
-  display: flex;
-  gap: 0.5rem;
-}
-
-.chat-input {
-  flex: 1;
-  padding: 0.65rem 0.9rem;
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background-color: transparent;
-  color: var(--color-text);
-  font-size: 0.88rem;
-}
-
-.chat-input:focus {
-  outline: none;
-  border-color: var(--color-primary);
-}
-
-/* --------------------------------------------------------------------------
-   SO SÁNH LỖI VÀ GỢI Ý SỬA CV (DIFF COMPARISON CARDS)
-   -------------------------------------------------------------------------- */
-.preview-suggestions-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-xl);
-  margin-top: var(--spacing-xl);
-}
-
-.diff-card {
-  background-color: var(--color-card-bg);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-lg);
-  box-shadow: var(--shadow-sm);
-}
-
-.diff-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: var(--spacing-md);
-}
-
-.diff-header h4 {
+.guarantee-item h4 {
   font-size: 1.15rem;
-  color: var(--color-text);
-  font-weight: 700;
-}
-
-.diff-badge-wrong {
-  background-color: rgba(239, 68, 68, 0.15);
-  color: var(--color-danger);
-  padding: 3px 9px;
-  border-radius: var(--radius-sm);
-  font-size: 0.76rem;
   font-weight: 800;
+  color: var(--color-honey);
+  margin-bottom: 0.4rem;
 }
 
-.diff-badge-right {
-  background-color: rgba(16, 185, 129, 0.15);
-  color: var(--color-success);
-  padding: 3px 9px;
-  border-radius: var(--radius-sm);
-  font-size: 0.76rem;
-  font-weight: 800;
-}
-
-.diff-item {
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--radius-sm);
-  margin-bottom: var(--spacing-sm);
-  font-size: 0.9rem;
-}
-
-.diff-item.wrong {
-  background-color: rgba(239, 68, 68, 0.05);
-  border-left: 3.5px solid var(--color-danger);
-}
-
-.diff-item.right {
-  background-color: rgba(16, 185, 129, 0.05);
-  border-left: 3.5px solid var(--color-success);
-}
-
-.diff-explanation {
-  font-size: 0.82rem;
-  color: var(--color-text-muted);
-  margin-top: 5px;
-}
-
-/* --------------------------------------------------------------------------
-   7. CỘNG ĐỒNG (BLOG VÀ ENGLISH REVIEWS)
-   -------------------------------------------------------------------------- */
-.community-section {
-  padding-block: var(--spacing-xxl);
-  background-color: var(--color-bg-alt);
-}
-
-.blog-articles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--spacing-lg);
-  margin-bottom: var(--spacing-xxl);
-}
-
-.blog-card {
-  background-color: var(--color-card-bg);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition-smooth);
-  display: flex;
-  flex-direction: column;
-}
-
-.blog-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-primary);
-}
-
-.blog-header {
-  padding: var(--spacing-md) var(--spacing-lg) 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.blog-category {
-  font-size: 0.76rem;
-  font-weight: 800;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-}
-
-.blog-time {
-  font-size: 0.82rem;
-  color: var(--color-text-muted);
-}
-
-.blog-body {
-  padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.blog-title {
-  font-size: 1.18rem;
-  font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: 0.5rem;
-  color: var(--color-text);
-}
-
-.blog-excerpt {
-  color: var(--color-text-muted);
-  font-size: 0.92rem;
-  margin-bottom: var(--spacing-md);
-  flex: 1;
-}
-
-.blog-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1.5px solid var(--color-border);
-  padding-top: var(--spacing-sm);
+.guarantee-item p {
   font-size: 0.88rem;
-  color: var(--color-primary);
-  font-weight: 700;
-}
-
-/* English Testimonials Grid */
-.reviews-title-box {
-  margin-bottom: var(--spacing-xl);
-  text-align: center;
-}
-
-.reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: var(--spacing-lg);
-}
-
-.review-card {
-  background-color: var(--color-card-bg);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-lg);
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: var(--transition-smooth);
-}
-
-.review-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-primary);
-  box-shadow: var(--shadow-md);
-}
-
-.rating-stars {
-  color: #F59E0B;
-  font-size: 1.15rem;
-  margin-bottom: var(--spacing-sm);
-  letter-spacing: 2px;
-}
-
-.review-quote {
-  font-size: 0.94rem;
-  font-style: italic;
-  color: var(--color-text);
-  line-height: 1.65;
-  margin-bottom: var(--spacing-md);
-  flex: 1;
-}
-
-.reviewer-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  border-top: 1.5px solid var(--color-border);
-  padding-top: var(--spacing-sm);
-}
-
-.reviewer-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-full);
-  background-color: var(--color-secondary);
-  color: var(--color-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 1rem;
-}
-
-.reviewer-info h5 {
-  font-size: 0.98rem;
-  font-weight: 700;
-  color: var(--color-text);
-}
-
-.reviewer-info p {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-}
-
-/* --------------------------------------------------------------------------
-   8. GIỚI THIỆU & THẮC MẮC - GIẢI PHÁP (ABOUT & FAQ)
-   -------------------------------------------------------------------------- */
-.about-section {
-  padding-block: var(--spacing-xxl);
-}
-
-.about-intro-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-xxl);
-  align-items: center;
-  margin-bottom: var(--spacing-xxl);
-}
-
-.about-text-content h3 {
-  font-size: 2.1rem;
-  font-weight: 800;
-  line-height: 1.3;
-  margin-bottom: var(--spacing-md);
-  color: var(--color-text);
-}
-
-.about-text-content p {
-  color: var(--color-text-muted);
-  font-size: 1.05rem;
-  margin-bottom: var(--spacing-md);
-}
-
-.about-highlights-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: var(--spacing-md);
-}
-
-.about-highlights-list li {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-.check-icon {
-  color: var(--color-primary);
-  font-weight: 800;
-}
-
-/* FAQ Accordion (Pure HTML5 <details> & <summary>) */
-.faq-solutions-container {
-  max-width: 900px;
-  margin-inline: auto;
-}
-
-.faq-card {
-  background-color: var(--color-card-bg);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-md);
-  margin-bottom: var(--spacing-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition-fast);
-}
-
-.faq-card:hover {
-  border-color: var(--color-primary);
-}
-
-details.faq-item {
-  width: 100%;
-}
-
-summary.faq-question {
-  padding: 1.15rem 1.45rem;
-  font-weight: 700;
-  font-size: 1.05rem;
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--color-text);
-  user-select: none;
-}
-
-summary.faq-question::-webkit-details-marker {
-  display: none;
-}
-
-summary.faq-question::after {
-  content: "+";
-  font-size: 1.45rem;
-  font-weight: bold;
-  color: var(--color-primary);
-  transition: transform 0.3s ease;
-}
-
-details[open] summary.faq-question::after {
-  transform: rotate(45deg);
-}
-
-.faq-answer {
-  padding: 0 1.45rem 1.45rem;
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  border-top: 1.5px dashed var(--color-border);
-  padding-top: var(--spacing-md);
-}
-
-.faq-answer strong {
-  color: var(--color-primary);
-}
-
-.solution-box {
-  background-color: rgba(0, 173, 181, 0.08);
-  border-left: 3.5px solid var(--color-primary);
-  padding: 0.8rem 1.1rem;
-  margin-top: 0.75rem;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-}
-
-/* --------------------------------------------------------------------------
-   9. CTA BANNER
-   -------------------------------------------------------------------------- */
-.cta-banner-section {
-  padding-block: var(--spacing-xxl);
-  background: linear-gradient(135deg, var(--color-dark) 0%, #1f2329 100%);
-  color: #FFFFFF;
-  text-align: center;
-}
-
-.cta-box {
-  max-width: 760px;
-  margin-inline: auto;
-}
-
-.cta-box h2 {
-  font-size: 2.45rem;
-  font-weight: 800;
-  margin-bottom: var(--spacing-sm);
-  color: #FFFFFF;
-}
-
-.cta-box p {
-  color: var(--color-secondary);
-  font-size: 1.12rem;
-  margin-bottom: var(--spacing-lg);
+  color: #D6D6D6;
+  line-height: 1.5;
 }
 
 /* --------------------------------------------------------------------------
    10. SEMANTIC FOOTER
    -------------------------------------------------------------------------- */
 footer.site-footer {
-  background-color: var(--color-dark);
-  color: var(--color-light);
-  padding-top: var(--spacing-xxl);
-  padding-bottom: var(--spacing-lg);
-  border-top: 3.5px solid var(--color-primary);
+  background-color: var(--color-black);
+  color: #FFFFFF;
+  padding-top: var(--space-xxl);
+  padding-bottom: var(--space-lg);
+  border-top: 3.5px solid var(--color-honey);
 }
 
-.footer-grid {
+.footer-grid-4 {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: var(--spacing-xl);
-  margin-bottom: var(--spacing-xl);
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
 }
 
-.footer-brand h4 {
-  font-size: 1.35rem;
-  font-weight: 800;
+.footer-col-brand h4 {
+  font-size: 1.45rem;
+  font-weight: 900;
   color: #FFFFFF;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--space-sm);
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.footer-brand p {
-  color: #AAD8D3;
+.footer-col-brand h4 span {
+  color: var(--color-honey);
+}
+
+.footer-col-brand p {
+  color: #B8B0A2;
   font-size: 0.92rem;
   line-height: 1.65;
   max-width: 320px;
 }
 
-.footer-column h5 {
-  font-size: 1.02rem;
-  font-weight: 700;
+.footer-author-pill {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: rgba(229, 169, 60, 0.15);
+  border: 1.2px solid var(--color-honey);
   color: #FFFFFF;
-  margin-bottom: var(--spacing-md);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+}
+
+.footer-author-pill strong {
+  color: var(--color-honey);
+}
+
+.footer-column-menu h5 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: var(--space-md);
   position: relative;
 }
 
-.footer-column h5::after {
+.footer-column-menu h5::after {
   content: '';
   position: absolute;
   bottom: -6px;
   left: 0;
   width: 28px;
   height: 2.5px;
-  background-color: var(--color-primary);
+  background-color: var(--color-honey);
 }
 
-.footer-links {
+.footer-nav-list {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
 }
 
-.footer-links a {
-  color: #AAD8D3;
+.footer-nav-list a {
+  color: #B8B0A2;
   font-size: 0.9rem;
-  transition: var(--transition-fast);
+  transition: var(--trans-fast);
 }
 
-.footer-links a:hover,
-.footer-links a:focus {
-  color: var(--color-primary);
+.footer-nav-list a:hover,
+.footer-nav-list a:focus {
+  color: var(--color-honey);
   transform: translateX(4px);
   outline: none;
 }
 
-.footer-bottom {
-  border-top: 1px solid rgba(170, 216, 211, 0.2);
-  padding-top: var(--spacing-lg);
+.footer-bottom-bar {
+  border-top: 1px solid rgba(229, 169, 60, 0.2);
+  padding-top: var(--space-lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.86rem;
-  color: #AAD8D3;
+  color: #B8B0A2;
   flex-wrap: wrap;
-  gap: var(--spacing-md);
-}
-
-.footer-author-credit {
-  background-color: rgba(0, 173, 181, 0.18);
-  padding: 5px 12px;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(0, 173, 181, 0.35);
-  color: #FFFFFF;
-  display: inline-block;
+  gap: var(--space-md);
 }
 
 /* --------------------------------------------------------------------------
-   11. HIỆU ỨNG TƯƠNG TÁC :HOVER & :FOCUS TỰ VIẾT BẰNG CSS
+   11. ACCESSIBILITY & FOCUS STYLES
    -------------------------------------------------------------------------- */
 :focus-visible {
-  outline: 2.5px solid var(--color-primary);
+  outline: 2.5px solid var(--color-honey);
   outline-offset: 2.5px;
 }
 
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-  outline: 2.5px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
 /* --------------------------------------------------------------------------
-   12. RESPONSIVE DESIGN (CSS MEDIA QUERIES)
+   12. RESPONSIVE DESIGN (MEDIA QUERIES)
    -------------------------------------------------------------------------- */
 @media (max-width: 992px) {
-  .hero-grid,
-  .studio-grid,
-  .about-intro-grid,
-  .preview-suggestions-grid {
+  .hero-grid {
     grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+    gap: var(--space-lg);
   }
 
-  .footer-grid {
+  .categories-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .guarantee-grid-4 {
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-lg);
   }
 
-  .hero-title {
+  .footer-grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-headline {
     font-size: 2.35rem;
   }
 }
 
 @media (max-width: 768px) {
-  .header-container {
+  .header-inner {
     flex-wrap: wrap;
   }
 
@@ -1424,33 +1040,33 @@ textarea:focus-visible {
     order: 3;
     width: 100%;
     overflow-x: auto;
-    padding-top: var(--spacing-xs);
+    padding-top: var(--space-xs);
   }
 
-  .nav-list {
+  .nav-links {
     width: 100%;
     justify-content: space-between;
   }
 
-  .nav-link {
+  .nav-item-link {
     padding: 0.4rem 0.6rem;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
   }
 
-  .form-grid-2 {
+  .hero-highlights-bar {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .guarantee-grid-4 {
     grid-template-columns: 1fr;
   }
 
-  .hero-stats {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-sm);
-  }
-
-  .footer-grid {
+  .footer-grid-4 {
     grid-template-columns: 1fr;
   }
 
-  .footer-bottom {
+  .footer-bottom-bar {
     flex-direction: column;
     text-align: center;
   }
