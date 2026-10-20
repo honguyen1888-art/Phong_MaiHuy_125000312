@@ -36,13 +36,31 @@
   <div class="page-wrapper">
 
     <!-- ====================================================================
-         1. SEMANTIC HEADER & NAVIGATION (CÙNG 1 HÀNG DUY NHẤT)
+         1. SEMANTIC HEADER & NAVIGATION (CÙNG 1 HÀNG DUY NHẤT, RÕ RÀNG TRONG DARK MODE)
          ==================================================================== -->
     <header class="site-header animate__animated animate__fadeInDown">
       <div class="container header-inner">
         
+        <!-- Logo SVG Inline đổi màu HONEY sang Trắng khi Dark Mode -->
         <a href="index.html" class="brand-box" aria-label="Trang chủ HONEYVAULT">
-          <img src="assets/logo.svg" alt="HONEYVAULT Logo" class="logo-svg" width="190" height="42">
+          <svg class="brand-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" width="220" height="48">
+            <defs>
+              <linearGradient id="honeyGoldLogo4" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFC107" />
+                <stop offset="50%" stop-color="#E5A93C" />
+                <stop offset="100%" stop-color="#C48721" />
+              </linearGradient>
+            </defs>
+            <polygon points="30,8 50,19 50,41 30,52 10,41 10,19" fill="#141414" stroke="url(#honeyGoldLogo4)" stroke-width="2.5"/>
+            <path d="M20 36 L20 26 L25 30 L30 22 L35 30 L40 26 L40 36 Z" fill="url(#honeyGoldLogo4)"/>
+            <circle cx="20" cy="24" r="1.5" fill="#FFFFFF"/>
+            <circle cx="30" cy="20" r="1.8" fill="#FFFFFF"/>
+            <circle cx="40" cy="24" r="1.5" fill="#FFFFFF"/>
+            <text x="62" y="31" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="900" letter-spacing="1">
+              <tspan class="logo-honey-word">HONEY</tspan><tspan fill="#E5A93C">VAULT</tspan>
+            </text>
+            <text x="62" y="47" class="logo-sub-text" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9" font-weight="700" letter-spacing="2.5">SẢN PHẨM ĐỘC QUYỀN NHẬT BẢN</text>
+          </svg>
           <span class="badge-tag">LIGHT NOVEL JAPAN</span>
         </a>
 
@@ -104,7 +122,7 @@
 
           <div class="hero-figure-wrap" data-aos="fade-left">
             <figure>
-              <img src="assets/novel-thumb.svg" alt="Light Novel &amp; Manga Collection" width="460" height="340" style="filter: drop-shadow(0 15px 30px rgba(229,169,60,0.3));">
+              <img src="assets/novel-thumb.svg" alt="Light Novel &amp; Manga Collection" width="480" height="360" style="filter: drop-shadow(0 15px 30px rgba(229,169,60,0.3));">
               <figcaption class="sr-only">Hình ảnh biểu tượng các ấn bản Light Novel &amp; Manga độc quyền</figcaption>
             </figure>
           </div>
@@ -125,7 +143,7 @@
               <li><span class="filter-chip">Artbook Triển Lãm Tokyo</span></li>
               <li><span class="filter-chip">Tranh Shikishi Viền Vàng</span></li>
             </ul>
-            <span style="font-size: 0.85rem; color: var(--color-honey); font-weight: 700;">★ Giấy Nhật Xốp Cao Cấp</span>
+            <span style="font-size: 0.9rem; color: var(--color-honey); font-weight: 800;">★ Giấy Nhật Xốp Cao Cấp</span>
           </div>
 
           <!-- Lưới 6 tác phẩm Light Novel & Manga độc quyền -->
@@ -134,7 +152,7 @@
             <!-- Sản phẩm 1 -->
             <article class="product-item-card" data-aos="fade-up" data-aos-delay="100">
               <div class="product-thumb-holder">
-                <img src="assets/novel-thumb.svg" alt="Sword Art Online Platinum Edition" width="280" height="220">
+                <img src="assets/novel-thumb.svg" alt="Sword Art Online Platinum Edition" width="300" height="230">
                 <span class="exclusive-ribbon-badge">Kèm Chữ Ký Reki Kawahara</span>
                 <span class="stock-tag-limited">Chỉ còn 3 bộ</span>
               </div>
@@ -159,7 +177,7 @@
             <!-- Sản phẩm 2 -->
             <article class="product-item-card" data-aos="fade-up" data-aos-delay="150">
               <div class="product-thumb-holder">
-                <img src="assets/novel-thumb.svg" alt="One Piece Boxset 4" width="280" height="220">
+                <img src="assets/novel-thumb.svg" alt="One Piece Boxset 4" width="300" height="230">
                 <span class="exclusive-ribbon-badge">Shueisha Limited Edition</span>
                 <span class="stock-tag-limited">Còn 2 hộp</span>
               </div>
@@ -184,7 +202,7 @@
             <!-- Sản phẩm 3 -->
             <article class="product-item-card" data-aos="fade-up" data-aos-delay="200">
               <div class="product-thumb-holder">
-                <img src="assets/novel-thumb.svg" alt="Artbook Makoto Shinkai" width="280" height="220">
+                <img src="assets/novel-thumb.svg" alt="Artbook Makoto Shinkai" width="300" height="230">
                 <span class="exclusive-ribbon-badge">Triển Lãm Roppongi Tokyo</span>
                 <span class="stock-tag-limited">Còn 4 cuốn</span>
               </div>
@@ -209,7 +227,7 @@
             <!-- Sản phẩm 4 -->
             <article class="product-item-card" data-aos="fade-up" data-aos-delay="250">
               <div class="product-thumb-holder">
-                <img src="assets/novel-thumb.svg" alt="Monogatari Series Boxset" width="280" height="220">
+                <img src="assets/novel-thumb.svg" alt="Monogatari Series Boxset" width="300" height="230">
                 <span class="exclusive-ribbon-badge">VOFAN Art Boxset</span>
                 <span class="stock-tag-limited">Chỉ còn 1 bộ</span>
               </div>
@@ -234,7 +252,7 @@
             <!-- Sản phẩm 5 -->
             <article class="product-item-card" data-aos="fade-up" data-aos-delay="300">
               <div class="product-thumb-holder">
-                <img src="assets/novel-thumb.svg" alt="Chainsaw Man Shikishi" width="280" height="220">
+                <img src="assets/novel-thumb.svg" alt="Chainsaw Man Shikishi" width="300" height="230">
                 <span class="exclusive-ribbon-badge">Tatsuki Fujimoto Exhibition</span>
                 <span class="stock-tag-limited">Còn 2 tấm</span>
               </div>
@@ -259,7 +277,7 @@
             <!-- Sản phẩm 6 -->
             <article class="product-item-card" data-aos="fade-up" data-aos-delay="350">
               <div class="product-thumb-holder">
-                <img src="assets/novel-thumb.svg" alt="Oshi no Ko Special Fanbook" width="280" height="220">
+                <img src="assets/novel-thumb.svg" alt="Oshi no Ko Special Fanbook" width="300" height="230">
                 <span class="exclusive-ribbon-badge">First Edition Kèm Obi Gốc</span>
                 <span class="stock-tag-limited">Còn 5 cuốn</span>
               </div>
