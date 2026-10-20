@@ -62,6 +62,16 @@
   - Thêm `white-space: nowrap` vào `.nav-item-link` và `.nav-links`, tinh chỉnh kích thước logo và padding các phần tử để hàng menu trải dài thẳng tắp, cân đối hoàn hảo trên mọi kích thước màn hình.
   - Bổ sung cơ chế đồng bộ tức thì qua thuộc tính `html[data-theme="dark"]` kết hợp `localStorage.getItem('honeyvault_theme')` được thực thi ngay trong `<head>` để trang mới mở ra đã ở chế độ tối ngay lập tức mà không hề bị chớp giật màn hình (zero flicker).
 
+### Lần 5: Khắc phục lỗi chữ logo bị chìm màu Dark Mode & mở rộng khung chống tràn viền toàn diện
+- **Prompt đã dùng:**
+  > *"1) Sửa lại chữ logo HONEY khi chuyển sang chế độ tối (Dark Mode) phải đọc được rõ ràng, không được để màu đen tàng hình trên nền đen. 2) Sửa lại tất cả các văn bản bị tràn khỏi khung viền trên toàn bộ website (đặc biệt là các khung nhãn 'POKÉMON CENTER JAPAN', 'BẢN ĐẶC BIỆT KÈM OBI', '100% ĐỘC QUYỀN' trong hình minh họa và thẻ card), đồng thời tăng kích thước chữ và khung viền cho thông thoáng, dễ đọc."*
+- **Thách thức gặp phải:**
+  - Thẻ `<img>` nạp file SVG từ bên ngoài không nhận thuộc tính CSS Dark Mode từ tài liệu chính, dẫn đến chữ `HONEY` giữ nguyên màu `#141414` bị chìm hoàn toàn vào nền đen header.
+  - Các khung hình chữ nhật chứa nhãn trong SVG (`hero-banner.svg`, `pokemon-thumb.svg`) có chiều rộng cố định quá hẹp so với độ dài của chuỗi văn bản font in hoa 900, làm chữ tràn ra ngoài 2 cạnh khung.
+- **Cách sửa prompt (Debug prompt):**
+  - Chuyển logo thương hiệu sang dạng SVG Inline tích hợp trực tiếp trên Header của cả 4 trang, gán class `.logo-honey-word` chuyển sang màu trắng `#FFFFFF` sắc nét khi bật Dark Mode.
+  - Mở rộng chiều rộng tất cả các khung viền (từ 150px lên 250px cho pill Pokemon, từ 145px lên 185px cho pill Limited, từ 150px lên 195px cho pill Độc quyền), tăng kích thước chữ hiển thị lớn hơn và bổ sung padding rộng rãi để văn bản nằm trọn vẹn 100% bên trong khung.
+
 ---
 
 ## 3. Đánh giá cá nhân về quá trình Vibe Coding
