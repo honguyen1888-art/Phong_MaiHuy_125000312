@@ -10,6 +10,13 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 
+  <!-- Tự động đồng bộ giao diện Dark / Light Mode từ localStorage ngay lập tức trước khi render -->
+  <script>
+    if (localStorage.getItem('honeyvault_theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+
   <!-- Thư viện hiệu ứng -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -29,27 +36,28 @@
   <div class="page-wrapper">
 
     <!-- ====================================================================
-         1. SEMANTIC HEADER & NAVIGATION
+         1. SEMANTIC HEADER & NAVIGATION (CÙNG 1 HÀNG DUY NHẤT)
          ==================================================================== -->
     <header class="site-header animate__animated animate__fadeInDown">
       <div class="container header-inner">
         
         <a href="index.html" class="brand-box" aria-label="Trang chủ HONEYVAULT">
-          <img src="assets/logo.svg" alt="HONEYVAULT Logo" class="logo-svg" width="220" height="48">
+          <img src="assets/logo.svg" alt="HONEYVAULT Logo" class="logo-svg" width="190" height="42">
           <span class="badge-tag">ANIME FIGURES</span>
         </a>
 
+        <!-- Thanh điều hướng chính: Mọi chữ nằm cùng 1 hàng không xuống dòng -->
         <nav class="main-nav" aria-label="Điều hướng chính">
           <ul class="nav-links">
-            <li><a href="index.html" class="nav-item-link"><span>🏠</span> Trang Chủ</a></li>
-            <li><a href="pokemon.html" class="nav-item-link"><span>⚡</span> Pokémon Độc Quyền</a></li>
-            <li><a href="figure.html" class="nav-item-link current"><span>🎎</span> Mô Hình Figure</a></li>
-            <li><a href="manga-novel.html" class="nav-item-link"><span>📖</span> Light Novel &amp; Manga</a></li>
+            <li><a href="index.html" class="nav-item-link"><span>🏠</span><span>Trang Chủ</span></a></li>
+            <li><a href="pokemon.html" class="nav-item-link"><span>⚡</span><span>Pokémon Độc Quyền</span></a></li>
+            <li><a href="figure.html" class="nav-item-link current"><span>🎎</span><span>Mô Hình Figure</span></a></li>
+            <li><a href="manga-novel.html" class="nav-item-link"><span>📖</span><span>Light Novel &amp; Manga</span></a></li>
           </ul>
         </nav>
 
         <div class="header-right-tools">
-          <label for="theme-toggle" class="theme-switch" title="Chuyển đổi Sáng / Tối (Thuần CSS)">
+          <label for="theme-toggle" class="theme-switch" title="Chuyển đổi Sáng / Tối (Đồng bộ toàn bộ trang)">
             <span class="moon-icon" aria-hidden="true">🌙</span>
             <span class="sun-icon" aria-hidden="true">☀️</span>
           </label>
@@ -348,6 +356,29 @@
     if (typeof AOS !== 'undefined') {
       AOS.init({ duration: 800, once: true, offset: 70 });
     }
+
+    // ĐỒNG BỘ TRẠNG THÁI SÁNG / TỐI TỰ ĐỘNG GIỮA TẤT CẢ CÁC TRANG
+    (function() {
+      const toggle = document.getElementById('theme-toggle');
+      const savedTheme = localStorage.getItem('honeyvault_theme');
+
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if (toggle) toggle.checked = true;
+      }
+
+      if (toggle) {
+        toggle.addEventListener('change', function() {
+          if (this.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('honeyvault_theme', 'dark');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('honeyvault_theme', 'light');
+          }
+        });
+      }
+    })();
   </script>
 </body>
 </html>

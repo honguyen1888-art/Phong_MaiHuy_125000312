@@ -10,6 +10,13 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 
+  <!-- Tự động đồng bộ giao diện Dark / Light Mode từ localStorage ngay lập tức trước khi render -->
+  <script>
+    if (localStorage.getItem('honeyvault_theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+
   <!-- 1. Tích hợp thư viện Animate.css theo yêu cầu đề thi -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
@@ -26,37 +33,37 @@
 </head>
 <body>
 
-  <!-- Input checkbox ẩn chuyển đổi chế độ Sáng / Tối (Dark / Light Mode) bằng thuần CSS -->
+  <!-- Input checkbox chuyển đổi chế độ Sáng / Tối (Dark / Light Mode) -->
   <input type="checkbox" id="theme-toggle" aria-label="Chuyển đổi giao diện sáng tối">
 
   <!-- Khung bao toàn bộ giao diện -->
   <div class="page-wrapper">
 
     <!-- ====================================================================
-         1. SEMANTIC HEADER & NAVIGATION
+         1. SEMANTIC HEADER & NAVIGATION (CÙNG 1 HÀNG DUY NHẤT)
          ==================================================================== -->
     <header class="site-header animate__animated animate__fadeInDown">
       <div class="container header-inner">
         
         <!-- Logo & Thương hiệu -->
         <a href="index.html" class="brand-box" aria-label="Trang chủ HONEYVAULT">
-          <img src="assets/logo.svg" alt="HONEYVAULT Logo" class="logo-svg" width="220" height="48">
+          <img src="assets/logo.svg" alt="HONEYVAULT Logo" class="logo-svg" width="190" height="42">
           <span class="badge-tag">EXCLUSIVE JAPAN</span>
         </a>
 
-        <!-- Thanh điều hướng chính (Semantic <nav>) chứa liên kết đến 3 trang con -->
+        <!-- Thanh điều hướng chính: Mọi chữ nằm cùng 1 hàng không xuống dòng -->
         <nav class="main-nav" aria-label="Điều hướng chính website">
           <ul class="nav-links">
-            <li><a href="index.html" class="nav-item-link current"><span>🏠</span> Trang Chủ</a></li>
-            <li><a href="pokemon.html" class="nav-item-link"><span>⚡</span> Pokémon Độc Quyền</a></li>
-            <li><a href="figure.html" class="nav-item-link"><span>🎎</span> Mô Hình Figure</a></li>
-            <li><a href="manga-novel.html" class="nav-item-link"><span>📖</span> Light Novel &amp; Manga</a></li>
+            <li><a href="index.html" class="nav-item-link current"><span>🏠</span><span>Trang Chủ</span></a></li>
+            <li><a href="pokemon.html" class="nav-item-link"><span>⚡</span><span>Pokémon Độc Quyền</span></a></li>
+            <li><a href="figure.html" class="nav-item-link"><span>🎎</span><span>Mô Hình Figure</span></a></li>
+            <li><a href="manga-novel.html" class="nav-item-link"><span>📖</span><span>Light Novel &amp; Manga</span></a></li>
           </ul>
         </nav>
 
         <!-- Tiện ích bên phải: Nút Đổi Theme & Giỏ Hàng Nhanh -->
         <div class="header-right-tools">
-          <label for="theme-toggle" class="theme-switch" title="Chuyển đổi Sáng / Tối (Thuần CSS)">
+          <label for="theme-toggle" class="theme-switch" title="Chuyển đổi Sáng / Tối (Đồng bộ toàn bộ trang)">
             <span class="moon-icon" aria-hidden="true">🌙</span>
             <span class="sun-icon" aria-hidden="true">☀️</span>
           </label>
@@ -74,9 +81,7 @@
          ==================================================================== -->
     <main>
 
-      <!-- ------------------------------------------------------------------
-           HERO SECTION: GIỚI THIỆU SẢN PHẨM ĐỘC QUYỀN TRÊN THỊ TRƯỜNG
-           ------------------------------------------------------------------ -->
+      <!-- HERO SECTION: GIỚI THIỆU SẢN PHẨM ĐỘC QUYỀN TRÊN THỊ TRƯỜNG -->
       <section class="hero-exclusive-section">
         <div class="container hero-grid">
           
@@ -132,9 +137,7 @@
         </div>
       </section>
 
-      <!-- ------------------------------------------------------------------
-           3 TRANG SẢN PHẨM CON ĐỘC QUYỀN (3 PILLARS SHOWCASE)
-           ------------------------------------------------------------------ -->
+      <!-- 3 TRANG SẢN PHẨM CON ĐỘC QUYỀN (3 PILLARS SHOWCASE) -->
       <section id="categories-overview" class="categories-preview-section">
         <div class="container">
           
@@ -223,9 +226,7 @@
         </div>
       </section>
 
-      <!-- ------------------------------------------------------------------
-           CÁC SIÊU PHẨM ĐỘC QUYỀN ĐANG MỞ BÁN (HOT EXCLUSIVES)
-           ------------------------------------------------------------------ -->
+      <!-- CÁC SIÊU PHẨM ĐỘC QUYỀN ĐANG MỞ BÁN -->
       <section id="featured-products" class="products-display-section">
         <div class="container">
           
@@ -342,9 +343,7 @@
         </div>
       </section>
 
-      <!-- ------------------------------------------------------------------
-           CAM KẾT CHÍNH HÃNG 100% NỘI ĐỊA NHẬT (AUTHENTIC GUARANTEE)
-           ------------------------------------------------------------------ -->
+      <!-- CAM KẾT CHÍNH HÃNG 100% NỘI ĐỊA NHẬT -->
       <section id="guarantee" class="guarantee-section" data-aos="fade-up">
         <div class="container">
           
@@ -387,9 +386,7 @@
 
     </main>
 
-    <!-- ====================================================================
-         THÔNG BÁO GIỎ HÀNG THUẦN CSS QUA :TARGET
-         ==================================================================== -->
+    <!-- THÔNG BÁO GIỎ HÀNG THUẦN CSS -->
     <div id="added-cart" class="cart-toast-notify" role="alert">
       <span style="font-size: 1.8rem;">🍯</span>
       <div class="toast-msg-body">
@@ -407,7 +404,6 @@
         
         <div class="footer-grid-4">
           
-          <!-- Cột thương hiệu -->
           <div class="footer-col-brand">
             <h4>
               <span>HONEY</span>VAULT
@@ -420,7 +416,6 @@
             </span>
           </div>
 
-          <!-- Cột 3 trang con -->
           <div class="footer-column-menu">
             <h5>3 Trang Con Độc Quyền</h5>
             <ul class="footer-nav-list">
@@ -431,7 +426,6 @@
             </ul>
           </div>
 
-          <!-- Cột hỗ trợ -->
           <div class="footer-column-menu">
             <h5>Chính Sách Khách Hàng</h5>
             <ul class="footer-nav-list">
@@ -442,7 +436,6 @@
             </ul>
           </div>
 
-          <!-- Cột thông tin học phần ĐH Lạc Hồng -->
           <div class="footer-column-menu">
             <h5>Thông Tin Học Phần</h5>
             <ul class="footer-nav-list">
@@ -457,7 +450,7 @@
 
         <div class="footer-bottom-bar">
           <p>&copy; 2026 HONEYVAULT - Bản quyền thuộc về Mai Huy Phong (MSSV: 125000312). Đồ án Thiết Kế Web.</p>
-          <p>Thiết kế thuần W3C Semantic HTML5 &amp; Modern CSS Variables. Không sử dụng thêm ngôn ngữ khác.</p>
+          <p>Thiết kế thuần W3C Semantic HTML5 &amp; Modern CSS Variables. Đồng bộ trạng thái Sáng / Tối toàn diện.</p>
         </div>
 
       </div>
@@ -469,12 +462,31 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     if (typeof AOS !== 'undefined') {
-      AOS.init({
-        duration: 800,
-        once: true,
-        offset: 70
-      });
+      AOS.init({ duration: 800, once: true, offset: 70 });
     }
+
+    // ĐỒNG BỘ TRẠNG THÁI SÁNG / TỐI TỰ ĐỘNG GIỮA TẤT CẢ CÁC TRANG
+    (function() {
+      const toggle = document.getElementById('theme-toggle');
+      const savedTheme = localStorage.getItem('honeyvault_theme');
+
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if (toggle) toggle.checked = true;
+      }
+
+      if (toggle) {
+        toggle.addEventListener('change', function() {
+          if (this.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('honeyvault_theme', 'dark');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('honeyvault_theme', 'light');
+          }
+        });
+      }
+    })();
   </script>
 </body>
 </html>
