@@ -52,6 +52,16 @@
   - Thêm hiệu ứng viền `:focus-visible` 2.5px vàng mật ong để nâng cao khả năng tiếp cận (Accessibility - A11y).
   - Bổ sung các tem nhãn: *ĐỘC QUYỀN TOKYO*, *BẢN KỶ NIỆM*, *SỐ LƯỢNG GIỚI HẠN* để làm nổi bật tinh thần 'Sản phẩm độc quyền trên thị trường'.
 
+### Lần 4: Khắc phục lỗi chữ menu bị xuống dòng & Tự động đồng bộ Dark Mode đa trang
+- **Prompt đã dùng:**
+  > *"Sửa lại 2 lỗi quan trọng: 1) Toàn bộ các văn bản của thanh menu điều hướng phải nằm trên cùng một hàng ngang với nhau, không được ngắt làm 2 dòng gây mất thẩm mỹ. 2) Chế độ Sáng / Tối phải được lưu và đồng bộ tự động giữa tất cả 4 trang web (Trang chủ, Pokemon, Figure, Manga/Novel) để khi người dùng chuyển sang trang con khác thì giao diện vẫn giữ nguyên chế độ tối/sáng mà không phải chỉnh lại."*
+- **Thách thức gặp phải:**
+  - Tiêu đề các mục menu dài ("Pokémon Độc Quyền", "Mô Hình Figure", "Light Novel & Manga") kèm icon bị ngắt dòng do giới hạn chiều rộng và thiếu thuộc tính `white-space: nowrap`.
+  - Giữa các file HTML riêng biệt (`index.html`, `pokemon.html`, `figure.html`, `manga-novel.html`), trình duyệt mặc định nạp lại tài liệu mới khiến trạng thái checkbox `:checked` bị reset về mặc định nếu không lưu trữ trạng thái.
+- **Cách sửa prompt (Debug prompt):**
+  - Thêm `white-space: nowrap` vào `.nav-item-link` và `.nav-links`, tinh chỉnh kích thước logo và padding các phần tử để hàng menu trải dài thẳng tắp, cân đối hoàn hảo trên mọi kích thước màn hình.
+  - Bổ sung cơ chế đồng bộ tức thì qua thuộc tính `html[data-theme="dark"]` kết hợp `localStorage.getItem('honeyvault_theme')` được thực thi ngay trong `<head>` để trang mới mở ra đã ở chế độ tối ngay lập tức mà không hề bị chớp giật màn hình (zero flicker).
+
 ---
 
 ## 3. Đánh giá cá nhân về quá trình Vibe Coding
